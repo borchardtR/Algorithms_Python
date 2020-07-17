@@ -28,10 +28,6 @@ My goals for this project are:
 - #### [Merge sort](chapter_2/merge_sort/merge_sort.py)<br>
 - #### [Quicksort](chapter_2/quicksort/quicksort.py)<br>
 - #### [Heapsort](chapter_2/heapsort/heapsort.py)<br>
-
-  - [Stack implemented with resizing array](chapter_1/stack/stack_resizingarray.py)<br>
-  - [Stack implemented with fixed to resizing array](chapter_1/stack/stack_resizingarray.py)<br>
-  - [Stack implemented with linked list](chapter_1/stack/stack_resizingarray.py)<br>
 - #### Priority Queue<br>
   - [Priority queue implemented with unordered array](chapter_2/priority_queue/priorityqueue_unorderedarray.py)<br>
   - [Priority queue implemented with ordered array](chapter_2/priority_queue/priorityqueue_orderedarray.py)<br>
@@ -48,5 +44,19 @@ My goals for this project are:
   - [Symbol table implemented with red-black binary search tree](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
   - [Symbol table implemented with hash table using separate chaining](chapter_3/st_hashtable_separatechaining/st_hashtable_separatechaining.py)<br>
   - [Symbol table implemented with hash table using linear probing](chapter_3/st_hashtable_linearprobing/st_hashtable_linearprobing.py)<br>
+  
+  ### Chapter 4
+- #### Undirected Graph<br>
+  - [Undirected graph implemented with array of linked lists](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
+  - [Depth first search](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
+  - [Path detection DFS](Chapter_3/st_binarysearchtree/st_binarysearchtree.py)<br>
+  - [Connected component detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
+  - [Cycle detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
+  - [Biparite detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
+  - [Breadth first search](chapter_3/st_hashtable_separatechaining/st_hashtable_separatechaining.py)<br>
+  - [Path detection BFS](chapter_3/st_hashtable_linearprobing/st_hashtable_linearprobing.py)<br>
+  - [Undirected graph implemented with symbol table](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
+  - [Degrees of separation](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
+  
   
   
