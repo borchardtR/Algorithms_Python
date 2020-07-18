@@ -91,6 +91,14 @@ class Stack_ResizingArray:
     def __iter__(self):
         return Stack_ResizingArray._Stack_ResizingArray_Iterator(self)
         
+    def __str__(self):
+        string = ""
+        # This works b/c the Stack_ResizingArray object is iterable
+        for i in self:
+            string = string + "\n" + str(i)
+        return string
+            
+        
 # Test client 
 
 #Method 1: the built-in open() function  
@@ -156,6 +164,9 @@ def main():
 
         for item in ra_stack:
             print(item)
+            
+        stack_string = str(ra_stack)
+        print(stack_string)
 
     # If a filename is given:
     else:

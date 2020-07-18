@@ -8,6 +8,13 @@
     # See my alternate implementation (graph_alt.py) that allows for the names of the verticies to be any object. This implementation has additional functionality such as being able to...
 # Note that Sedgewick and Wayne implement their graph data strucuture using the Bag data structure that was implemented with linked lists. 
 
+# Note that Sedgewick and Wayne somtimes use the same name for both instance variables and instance methods (for example instance variable self.adj and instance method adj) in their Java code
+    # In Python, the instance variable is called self.adj within the class definition and graph.adj in the test client (if the variable graph is a reference to a Graph_ArrayLinkedLists object)
+    # The instance method is called self.adj() within the class definition and graph.adj() in the test client
+    # This can be problematic in Python b/c: The instance variable will ALWAYS be called when you intend to call the instance method if they share the same name
+    # For example, graph.adj(0) in the test client is actually interpreted as applying (0) to the graph.adj instance variable rather than calling the graph.adj() instance method with 0 as an input
+    # For clarity, I always make sure that instance variables and instance methods do not share the same name
+
 # Space required: E + V
 # Time to add edge v-w: 1
 # Time to check whether w is adjacent to v: degree(v)
@@ -20,7 +27,6 @@ import sys
 # Added Algorithms's parent directory to sys.path
 sys.path.append('C:/Users/Ryan/Desktop/Work/')
 from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
-
 
 class Graph_ArrayLinkedLists:
     # Note that in Python, a class can't have more than one constructor (Java allows for more than one constructor).
@@ -59,10 +65,10 @@ class Graph_ArrayLinkedLists:
                 self.addEdge(v,w)
             
       
-    def V(self):
+    def num_V(self):
         return self.V
     
-    def E(self):
+    def num_E(self):
         return self.E
     
     def addEdge(self, v, w):
@@ -72,11 +78,10 @@ class Graph_ArrayLinkedLists:
         self.E += 1
     
     # Returns an iterable for the verticies adjacent to v
-    def adj(self, v):
-        # See Bag_LinkedList.py for how we implemented the __iter__() method for Bag_LinkedList objects
-        # Either line of code below works.
-        #return self.adj[v].__iter__()
-        return iter(self.adj[v])
+    def adjacent(self, v):
+        # self._adj[v] is a reference to a Bag_LinkedList object
+        # for i in Bag_LinkedList object iterates through the items of each node (see how I made Bag_LinkedList object iterable in bag_linkedlist.py)
+        return self.adj[v]
     
     def __str__(self):
         returned_string = str(self.V) + ' verticies, ' + str(self.E) + ' edges.' + '\n'
@@ -99,8 +104,9 @@ def main():
         delimiter = sys.argv[2]
         graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
         print(graph)
-        for i in graph.adj[0]:
+        for i in graph.adjacent(0):
             print(i)
+        
 
 
 if __name__=="__main__": main()
