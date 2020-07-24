@@ -4,6 +4,10 @@
 # I am implementing the depth first search algorithm.
 # This particular implementation of depth first search is for undirected, unweighted graphs. 
 
+# This class can be directly used to determine for a given vertex (s):
+    # 1. If a vertex, v, is connected to s.
+    # 2. The # of vertices connected to s.
+
 # Note that as I see it there are atleast 8 main ways to implement the DFS algorithm:
     # 1. DFS as a separate data structure
     # 2. DFS as a separate function
@@ -18,6 +22,8 @@
         # Etc.
     
 # I have decided to implement depth first search using the same way that it is done in Sedgewick and Wayne's Algorithms (DFS as a separate data structure implemented recursively).
+# I implemented depth first seach as a separate data structure implemented iteratively in dfs_iterative.py
+    # I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
 
 # Example 2:
 # python depth_first_search_undirected.py tinyCG.txt ' ' 0 2 5
