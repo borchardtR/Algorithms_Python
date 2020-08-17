@@ -58,10 +58,6 @@ My goals for this project are:
   - [Biparite detection DFS](chapter_4/undirected_graphs/biparite.py)<br>
   
 - #### Coming up<br>
-  - [Connected component detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
-  - [Cycle detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
-  - [Biparite detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
-
   - [Undirected graph implemented with symbol table](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
   - [Degrees of separation](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
   
