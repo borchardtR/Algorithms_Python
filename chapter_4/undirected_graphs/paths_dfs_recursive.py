@@ -8,13 +8,13 @@
 # 2. Determine a path between two connected vertices.  
 
 
-# Example 2:
+# Example:
 # python paths_dfs_recursive.py tinyCG.txt ' ' 0
 
 import sys
 # Added Algorithms's parent directory to sys.path
 sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
+from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 
 class Paths_dfs:
@@ -50,7 +50,7 @@ class Paths_dfs:
 def main():
     filename = sys.argv[1]
     delimiter = sys.argv[2]
-    graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
+    graph = Graph_Array_AdjacencyLists(filename=filename, delimiter=delimiter)
     s = int(sys.argv[3])
     
     paths = Paths_dfs(graph,s)

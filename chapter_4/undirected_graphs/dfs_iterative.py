@@ -8,7 +8,7 @@
 # 1. Determine if a path exists from a vertex to another vertex.
 # 2. Determine the number of vertices a vertex is connected to.
 
-# Example 1:
+# Example:
 # python dfs_iterative.py tinyCG.txt ' ' 0 2 5
 
 import sys

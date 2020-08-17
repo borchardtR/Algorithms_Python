@@ -29,7 +29,7 @@
 # I implemented depth first seach as a separate data structure implemented iteratively in dfs_iterative.py
     # I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
 
-# Example 2:
+# Example:
 # python dfs_recursive.py tinyCG.txt ' ' 0 2 5
 
 import sys

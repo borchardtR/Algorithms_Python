@@ -53,12 +53,15 @@ My goals for this project are:
   - [Path detection DFS (recursive)](chapter_4/undirected_graphs/paths_dfs_recursive.py)<br>
   - [Path detection DFS (iterative)](chapter_4/undirected_graphs/paths_dfs_iterative.py)<br>
   - [Path detection BFS](chapter_4/undirected_graphs/paths_bfs.py)<br>
+  - [Connected component detection DFS](chapter_4/undirected_graphs/connected_components.py)<br>
+  - [Cycle detection DFS](chapter_4/undirected_graphs/cycle.py)<br>
+  - [Biparite detection DFS](chapter_4/undirected_graphs/biparite.py)<br>
+  
 - #### Coming up<br>
   - [Connected component detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
   - [Cycle detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
   - [Biparite detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
-  - [Breadth first search](chapter_3/st_hashtable_separatechaining/st_hashtable_separatechaining.py)<br>
-  - [Path detection BFS](chapter_3/st_hashtable_linearprobing/st_hashtable_linearprobing.py)<br>
+
   - [Undirected graph implemented with symbol table](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
   - [Degrees of separation](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
   
