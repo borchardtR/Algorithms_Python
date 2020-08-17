@@ -3,7 +3,7 @@
 
 # This implementation utilizes breadth first search.
 
-# This class extends the functionality of undirected graphs and to be able to:
+# This class extends the functionality of undirected graphs to be able to:
 # 1. Determine if a path exists from a vertex to another vertex.
 # 2. Determine the shortest path between two connected vertices.  
 

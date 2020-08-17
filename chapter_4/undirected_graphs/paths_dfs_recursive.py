@@ -3,7 +3,7 @@
 
 # This implementation builds off of the code in dfs_recursive.py
 
-# This class extends the functionality of undirected graphs and to be able to:
+# This class extends the functionality of undirected graphs to be able to:
 # 1. Determine if a path exists from a vertex to another vertex (using the same dfs algorithm as in dfs_recursive.py and dfs_iterative.py).
 # 2. Determine a path between two connected vertices.  
 
