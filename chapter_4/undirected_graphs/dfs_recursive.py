@@ -1,5 +1,9 @@
-# Title: depthfirstsearch_undirected.py
+# Title: dfs_recursive.py
 # Author: Ryan Borchardt
+
+# This class extends the functionality of undirected graphs to be able to:
+# 1. Determine if a path exists from a vertex to another vertex.
+# 2. Determine the number of vertices a vertex is connected to.
 
 # I am implementing the depth first search algorithm.
 # This particular implementation of depth first search is for undirected, unweighted graphs. 
@@ -26,15 +30,15 @@
     # I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
 
 # Example 2:
-# python depth_first_search_undirected.py tinyCG.txt ' ' 0 2 5
+# python dfs_recursive.py tinyCG.txt ' ' 0 2 5
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/Ryan/Desktop/Work/')
-from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
+sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
+from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 
 
-class Depth_First_Search:
+class DFS_Recursive:
     def __init__(self, graph, s):
         self.marked_array = [False]*graph.num_V()
         self.count_connected = 0
@@ -48,16 +52,16 @@ class Depth_First_Search:
         # I implemented the bag_linkedlist data structure to be iterable (each iteration returns the item instance variable which in this case corresponds to the vertex).
         for neighbor_vertex in bag_ll:
             if self.marked_array[neighbor_vertex] == True: 
-                print("Check",v)
+                print(neighbor_vertex,'is already marked.')
             else:
-                print("dfs(",v,")")
+                print("dfs(",neighbor_vertex,")")
                 self.dfs(graph, neighbor_vertex)
 
     # Is v connected to s?
     def marked(self, v):
         return self.marked_array[v]
 
-    # number of vertices connected to s     
+    # number of vertices connected to s (including s)     
     def count(self):
         return self.count_connected
     
@@ -66,10 +70,10 @@ class Depth_First_Search:
 def main():
     filename = sys.argv[1]
     delimiter = sys.argv[2]
-    graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
+    graph = Graph_Array_AdjacencyLists(filename=filename, delimiter=delimiter)
     s = int(sys.argv[3])
     
-    dfs_structure = Depth_First_Search(graph,s)
+    dfs_structure = DFS_Recursive(graph,s)
     
     for i in range(4,4+len(sys.argv[4:])):
         v = int(sys.argv[i])

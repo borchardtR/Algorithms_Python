@@ -47,9 +47,13 @@ My goals for this project are:
   
   ### Chapter 4
 - #### Undirected Graph<br>
-  - [Undirected graph implemented with array of linked lists](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
-  - [Depth first search](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
-  - [Path detection DFS](Chapter_3/st_binarysearchtree/st_binarysearchtree.py)<br>
+  - [Undirected graph implemented with array of linked lists](chapter_4/undirected_graph/graph_array_adjacencylists.py)<br>
+  - [Depth first search (recursive)](chapter_4/undirected_graph/dfs_recursive.py)<br>
+  - [Depth first search (iterative)](chapter_4/undirected_graph/dfs_iterative.py)<br>
+  - [Path detection DFS (recursive)](chapter_4/undirected_graph/paths_dfs_recursive.py)<br>
+  - [Path detection DFS (iterative)](chapter_4/undirected_graph/paths_dfs_iterative.py)<br>
+  - [Path detection BFS](chapter_4/undirected_graph/paths_bfs.py)<br>
+- #### Coming up<br>
   - [Connected component detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
   - [Cycle detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>
   - [Biparite detection DFS](chapter_3/st_redblack_binarysearchtree/st_redblack_binarysearchtree.py)<br>

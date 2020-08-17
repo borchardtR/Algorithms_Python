@@ -4,11 +4,15 @@
 # This is the iterative version of dfs.py
 # I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
 
+# This class extends the functionality of undirected graphs to be able to:
+# 1. Determine if a path exists from a vertex to another vertex.
+# 2. Determine the number of vertices a vertex is connected to.
+
 # Example 1:
 # python dfs_iterative.py tinyCG.txt ' ' 0 2 5
 
 import sys
-sys.path.append('C:/Users/Ryan/Desktop/Work/')
+sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
 

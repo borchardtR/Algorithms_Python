@@ -1,4 +1,4 @@
-# Title: graph_arraylinkedlists.py
+# Title: graph_array_adjacencylists.py
 # Author: Ryan Borchardt
 
 # I am implementing the graph data structure using an array of linked lists.
@@ -9,7 +9,7 @@
 # Note that Sedgewick and Wayne implement their graph data strucuture using the Bag data structure that was implemented with linked lists. 
 
 # Note that Sedgewick and Wayne somtimes use the same name for both instance variables and instance methods (for example instance variable self.adj and instance method adj) in their Java code
-    # In Python, the instance variable is called self.adj within the class definition and graph.adj in the test client (if the variable graph is a reference to a Graph_ArrayLinkedLists object)
+    # In Python, the instance variable is called self.adj within the class definition and graph.adj in the test client (if the variable graph is a reference to a Graph_Array_AdjacencyLists object)
     # The instance method is called self.adj() within the class definition and graph.adj() in the test client
     # This can be problematic in Python b/c: The instance variable will ALWAYS be called when you intend to call the instance method if they share the same name
     # For example, graph.adj(0) in the test client is actually interpreted as applying (0) to the graph.adj instance variable rather than calling the graph.adj() instance method with 0 as an input
@@ -21,14 +21,14 @@
 # Time to iterate through verticies adjacent to v: degree(v)
 
 # Example:
-# python graph_arraylinkedlists.py tinyG.txt ' '
+# python graph_array_adjacencylists.py tinyG.txt ' '
 
 import sys
 # Added Algorithms's parent directory to sys.path
 sys.path.append('C:/Users/Ryan/Desktop/Work/')
 from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
-class Graph_ArrayLinkedLists:
+class Graph_Array_AdjacencyLists:
     # Note that in Python, a class can't have more than one constructor (Java allows for more than one constructor).
     # However, Python allows for optional arguments and you can use this to allow for the same functionality 
     def __init__(self, V=None, filename=None, delimiter=None):
@@ -97,12 +97,12 @@ class Graph_ArrayLinkedLists:
     
 def main():
     if len(sys.argv) == 1:
-        graph = Graph_ArrayLinkedLists(V=10)
+        graph = Graph_Array_AdjacencyLists(V=10)
         return
     else:
         filename = sys.argv[1]
         delimiter = sys.argv[2]
-        graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
+        graph = Graph_Array_AdjacencyLists(filename=filename, delimiter=delimiter)
         print(graph)
         for i in graph.adjacent(0):
             print(i)

@@ -1,33 +1,47 @@
-# Title: paths_dfs.py
+# Title: paths_bfs.py
 # Author: Ryan Borchardt
 
-# This implementation builds off of the code in depth_first_search_undirected.py
+# This implementation utilizes breadth first search.
+
+# This class extends the functionality of undirected graphs and to be able to:
+# 1. Determine if a path exists from a vertex to another vertex.
+# 2. Determine the shortest path between two connected vertices.  
+
 
 # Example 2:
-# python paths_dfs.py tinyCG.txt ' ' 0
+# python paths_bfs.py tinyCG.txt ' ' 0
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/Ryan/Desktop/Work/')
+sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
+from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 
-class Paths_dfs:
+class Paths_bfs:
     def __init__(self, graph, s):
         self.path_array = [None]*graph.num_V()
         self.marked_array = [False]*graph.num_V()
         self.s = s
         
-        self.dfs(graph, s)
+        self.bfs(graph, s)
     
-    def dfs(self, graph, v):
+    def bfs(self, graph, v):
         self.marked_array[v] = True
-        bag_ll = graph.adj[v]
-        # I implemented the bag_linkedlist data structure to be iterable (each iteration returns the item instance variable which in this case corresponds to the vertex).
-        for neighbor_vertex in bag_ll:
-            if self.marked_array[neighbor_vertex] == False:
-                self.path_array[neighbor_vertex] = v
-                self.dfs(graph, neighbor_vertex)
+        queue = Queue_LinkedList()
+        prev_vertex = None
+        queue.enqueue(v)
+        while queue.isEmpty() == False:
+            vertex = queue.dequeue()
+            print(vertex)
+            neighbors_list = graph.adj[vertex]
+            for i in neighbors_list:
+                if self.marked_array[i] != True:
+                    queue.enqueue(i)
+                    self.marked_array[i] = True
+                    self.path_array[i] = vertex
+            # problem here.....
+            prev_vertex = vertex
     
     def hasPathTo(self, v):
         return self.marked_array[v]
@@ -48,9 +62,11 @@ def main():
     graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
     s = int(sys.argv[3])
     
-    paths = Paths_dfs(graph,s)
+    paths = Paths_bfs(graph,s)
     
-    #print(paths.pathTo(1))
+    print(paths.path_array)
+    
+    print(paths.pathTo(1))
     
     # the pathTo() method returns a stack object (which I have designed to be iterable) so for i in stack_object iterates through the items in each node of the bag
     for i in range(graph.num_V()):
@@ -59,7 +75,7 @@ def main():
             if j != i:
                 string = string + str(j) + "->"
             else:
-                string = string + str(j)
+               string = string + str(j)
         print(string)
 
 if __name__=="__main__":
