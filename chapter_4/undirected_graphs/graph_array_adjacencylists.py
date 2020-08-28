@@ -25,7 +25,7 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/Ryan/Desktop/Work/')
+sys.path.append('C:/Users/borch/Desktop/Work/')
 from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
 class Graph_Array_AdjacencyLists:

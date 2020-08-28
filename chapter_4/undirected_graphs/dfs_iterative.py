@@ -12,7 +12,7 @@
 # python dfs_iterative.py tinyCG.txt ' ' 0 2 5
 
 import sys
-sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
 

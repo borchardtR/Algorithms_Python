@@ -54,8 +54,11 @@ My goals for this project are:
   - [Path detection DFS (iterative)](chapter_4/undirected_graphs/paths_dfs_iterative.py)<br>
   - [Path detection BFS](chapter_4/undirected_graphs/paths_bfs.py)<br>
   - [Connected component detection DFS](chapter_4/undirected_graphs/connected_components.py)<br>
+  - [Connected component detection BFS](chapter_4/undirected_graphs/connected_components_bfs.py)<br>
   - [Cycle detection DFS](chapter_4/undirected_graphs/cycle.py)<br>
+  - [Cycle detection BFS](chapter_4/undirected_graphs/cycle_bfs.py)<br>
   - [Biparite detection DFS](chapter_4/undirected_graphs/biparite.py)<br>
+  - [Biparite detection BFS](chapter_4/undirected_graphs/biparite_bfs.py)<br>
   
 - #### Coming up<br>
   - [Undirected graph implemented with symbol table](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>

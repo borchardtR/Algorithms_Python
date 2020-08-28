@@ -13,7 +13,7 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
@@ -27,9 +27,8 @@ class Paths_bfs:
         self.bfs(graph, s)
     
     def bfs(self, graph, v):
-        self.marked_array[v] = True
         queue = Queue_LinkedList()
-        prev_vertex = None
+        self.marked_array[v] = True
         queue.enqueue(v)
         while queue.isEmpty() == False:
             vertex = queue.dequeue()
@@ -40,8 +39,7 @@ class Paths_bfs:
                     queue.enqueue(i)
                     self.marked_array[i] = True
                     self.path_array[i] = vertex
-            # problem here.....
-            prev_vertex = vertex
+            
     
     def hasPathTo(self, v):
         return self.marked_array[v]

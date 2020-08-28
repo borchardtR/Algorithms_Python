@@ -6,7 +6,6 @@
 # This class extends the functionality of undirected graphs to be able to:
 # 1. Determine if a graph is biparite.
 
-
 # Example:
 # python biparite.py tinyG.txt ' '
 #
@@ -14,7 +13,7 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/Ryan/Desktop/Work/github_repository_main/')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 
 class Biparite:
@@ -32,7 +31,7 @@ class Biparite:
 
         adjacent_list = graph.adj[v] 
         for vertex in adjacent_list:
-            if self._biparite_array[vertex] != self._biparite_array[v]:
+            if (self._marked_array[vertex]==True) and (self._biparite_array[vertex] == self._biparite_array[v]):
                 self._biparite = False
             if self._marked_array[vertex] != True:
                 self._biparite_array[vertex] = not self._biparite_array[v] 
