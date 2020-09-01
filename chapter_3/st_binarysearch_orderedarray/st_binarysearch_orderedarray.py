@@ -1,5 +1,4 @@
 # Title: st_binarysearch_orderedarray.py
-# Date: 6/23/2020
 # Author: Ryan Borchardt
 
 # I created a symbol table by implementing an ordered array (I am using the Python list data structure which is a dynamic array). It utilizes binary search.
