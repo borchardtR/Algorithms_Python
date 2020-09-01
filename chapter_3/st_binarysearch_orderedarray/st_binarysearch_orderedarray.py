@@ -11,11 +11,10 @@
 # However, put() overall takes linear time b/c each insertion into the key and value arrays() involves shifting the elements at and to the right of the index over 1.
 # This symbol table DOES support ordered operations.
 
-
-# Cost to build full table: (N^2)/2 
-# Cost for search hit: N/2 (average), N (worst-case)
-# Cost to add new key: N (for both average and worst)
-# Cost to update existing key: N/2 (average), N (worst-case)
+# Cost to build full table: N^2 (worst case) 
+# Cost for search: lg(N) (average search hit and worst case search miss are roughly equal. See the mathematical proof I added on page 385).
+# Cost to add new key: N 
+# Cost to update existing key: lg(N)
 
 # Example:
 # python st_binarysearch_orderedarray.py
@@ -60,7 +59,9 @@ class ST_binarysearch_orderedarray:
         lo = 0
         hi = self.n-1
         # Note that if the arrays are empty, hi=-1 and the while loop doesn't execute and lo=0 is returned.
+        # Also note that hi does not elsewise drop to being less than lo. The loop terminates when hi==lo so hi<lo is never reached unless the array is empty.
         while lo<=hi:
+            # Note that mid is computed this way to avoid errors resulting from an overflow from the addition of hi+lo
             mid = lo + (hi-lo)//2
             if key == self.key_array[mid]: return mid
             if key > self.key_array[mid]: lo = mid+1
@@ -114,6 +115,7 @@ class ST_binarysearch_orderedarray:
         else: return self.key_array[key_index-1]
         
     def ceiling(self,key):
+        # Based on the way rank() is defined, key_index will always be = key if the key exists or greater than the key.
         key_index = self.rank(key)
         return self.key_array[key_index]
         

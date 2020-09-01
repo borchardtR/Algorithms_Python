@@ -74,7 +74,7 @@ class ST_unordered_linkedlist:
         
         
     def contains(self, key):
-        return get(key) != null
+        return get(key) != None
         
     def isEmpty(self):
         return self.size() == 0
