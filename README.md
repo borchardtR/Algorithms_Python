@@ -59,10 +59,10 @@ My goals for this project are:
   - [Cycle detection BFS](chapter_4/undirected_graphs/cycle_bfs.py)<br>
   - [Biparite detection DFS](chapter_4/undirected_graphs/biparite.py)<br>
   - [Biparite detection BFS](chapter_4/undirected_graphs/biparite_bfs.py)<br>
+  - [Undirected graph implemented with symbol table](chapter_4/undirected_graphs/symbol_graph.py)<br>
+  - [Degrees of separation](chapter_4/undirected_graphs/degrees_of_separation.py)<br>
   
-- #### Coming up<br>
-  - [Undirected graph implemented with symbol table](chapter_4/undirected_graph/undirected_graph_array_linkedlist.py)<br>
-  - [Degrees of separation](chapter_3/st_binarysearch_orderedarray/st_binarysearch_orderedarray.py)<br>
+- #### Directed Graphs <br>
   
   
   

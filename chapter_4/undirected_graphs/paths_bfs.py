@@ -32,7 +32,6 @@ class Paths_bfs:
         queue.enqueue(v)
         while queue.isEmpty() == False:
             vertex = queue.dequeue()
-            print(vertex)
             neighbors_list = graph.adj[vertex]
             for i in neighbors_list:
                 if self.marked_array[i] != True:
