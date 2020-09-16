@@ -1,12 +1,18 @@
 # Title: symbol_graph.py
 # Author: Ryan Borchardt
 
-# I am implementing the graph data structure using an array of linked lists.
-# This is an implementation of the graph API listed on page 522 of Sedgewick and Wayne's Algorithms. 
+# I am implementing the graph data structure using a symbol table.
+# Important note: This data strucuture builds off and uses the graph_array_adjacencylists structure.
+# The Symbol_Graph has three main instance variables:
+# 1. self.st is a symbol table where the keys are the names of the verticies and their corresponding values are their integer counterparts between 0 to V-1 (this allows us to incorporate the graph_array_adjacencylists structure seamlessly).
+# 2. self.graph is the graph_array_adjacencylists structure where the adjacent verticies are stored as their integer index equivalents in a linked list stored at the index of the array corresponding to the given vertex.
+# 3. self.inverted_index allows for looking up the string name of a vertex given its integer index value. It serves the opposite function of looking up a key in self.st.
+
+# This extends the functionality to allow for vertices with string names rather than integers from 0 to V-1.
+
+# This is an implementation of the graph API listed on page 548 of Sedgewick and Wayne's Algorithms. 
 # This implementation is for: unweighted, undirected graphs that allows for self-loops and parallel edges.
-# The names of the vertices are restricted to being integers from 0 to V-1 where V is the number of vertices in the graph.
-    # See my alternate implementation (graph_alt.py) that allows for the names of the verticies to be any object. This implementation has additional functionality such as being able to...
-# Note that Sedgewick and Wayne implement their graph data strucuture using the Bag data structure that was implemented with linked lists. 
+
 
 # Note that Sedgewick and Wayne somtimes use the same name for both instance variables and instance methods (for example instance variable self.adj and instance method adj) in their Java code
     # In Python, the instance variable is called self.adj within the class definition and graph.adj in the test client (if the variable graph is a reference to a Graph_Array_AdjacencyLists object)
@@ -15,42 +21,94 @@
     # For example, graph.adj(0) in the test client is actually interpreted as applying (0) to the graph.adj instance variable rather than calling the graph.adj() instance method with 0 as an input
     # For clarity, I always make sure that instance variables and instance methods do not share the same name
 
+# The performance of the Symbol_Graph is similar to Graph_Array_AdjacencyLists simply b/c:
+    # Symbol_Graph builds off and uses Graph_Array_AdjacencyLists 
+    # The only additional operations come from the symbol table and inverted index array.
+    # All of the operations used are constant for the symbol table and constant (constant amortized when appending) for the inverted_index array. 
+    
+# The Symbol_Graph data structure requires slightly more space than the Graph_Array_AdjacencyLists but is still on the same scale:
+    # The Symbol_Graph has two additional instance variables: an array of length V and a symbol table with V key:value pairs
+    # The space required is still proportional to E + V
+
 # Space required: E + V
 # Time to add edge v-w: 1
-# Time to check whether w is adjacent to v: degree(v)
-# Time to iterate through verticies adjacent to v: degree(v)
+# Time to check whether w is adjacent to v: degree(V) + other constant-time operations
+# Time to iterate through verticies adjacent to v: degree(V) + other constant-time operations
 
 # Example:
-# python symbol_graph.py tinyG.txt ' '
+# python symbol_graph.py routes.txt ' '
+# python symbol_graph.py movies.txt '/'
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
-from algorithms_python.chapter_3.
+from algorithms_python.chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
 
 class Symbol_Graph:
     def __init__(self, filename, delimiter):
-        # Need to re-review chapter 3...
-        self.st = ____
-        self.inverted_index = [None]
-        self.graph = Graph_Array_AdjacencyLists()
+        self.st = ST_HashTable_SeparateChaining()
+        self.inverted_index = []
+        
+        
+        file_object = open(filename, 'r', encoding='utf-8')
+        index_count = 0
+        
+        for line in file_object:
+            line_list = line.strip().split(delimiter)
+            for vertex in line_list:
+                if self.st.contains(vertex)==False:
+                    self.st.put(vertex,index_count)
+                    self.inverted_index.append(vertex)
+                    index_count+=1
+        file_object.close()
+         
+        
+        self.graph = Graph_Array_AdjacencyLists(V=index_count)
+        
+        file_object = open(filename, 'r', encoding='utf-8')
+        
+        for line in file_object:
+            line_list = line.strip().split(delimiter)
+            first_vertex_int = self.st.get(line_list[0])
+            for i in range(1,len(line_list)):
+                next_vertex = self.st.get(line_list[i])
+                self.graph.addEdge(first_vertex_int, next_vertex)
+        file_object.close()
+        
+        
+            
     
     def contains(self, key):
-        return True
+        return self.st.get(key) != None
     
     def index(self, key):
-        return 0
+        return self.st.get(key)
     
     def name(self, int):
-        return 'key name'
+        return self.inverted_index[int]
         
     def G(self):
         return self.graph
+        
+    def __str__(self):
+        returned_string = str(self.graph.V) + ' verticies, ' + str(self.graph.E) + ' edges.' + '\n'
+        current_index=0
+        for llbag in self.graph.adj:
+            ll = self.graph.adj[current_index]
+            add_string = 'Verticies adjacent to ' + str(self.inverted_index[current_index]) + ': '
+            for node in ll:
+                if node != None:
+                    add_string = add_string + str(self.inverted_index[node]) + ', '
+            current_index += 1
+            returned_string = returned_string + add_string[:len(add_string)-2] + '\n'
+        return returned_string
+    
+        
 
 def main():
     sg = Symbol_Graph(filename=sys.argv[1], delimiter=sys.argv[2])
-        
+    print(sg)
 
 
 if __name__=="__main__": main()

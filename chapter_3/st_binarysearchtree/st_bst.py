@@ -7,7 +7,7 @@
 
 # In the worst case (nodes are inserted with in-order or reverse-order keys) the tree height is N.
 # In the best case (the tree is perfectly balanced) the tree height is lg(N).
-# In the average case (we assume that the nodes are inserted with keys in random order) the average path length is 1.39lg(N) (similar to the mergesort proof).
+# In the average case (we assume that the nodes are inserted with keys in random order) the average path length is 1.39lg(N) (similar to the quicksort proof).
 
 # Note that I have not yet implemented a way to iterate through a specified range of keys. example: iterate from Buck to Terrance.
 
@@ -20,7 +20,7 @@
 
 
 import sys
-sys.path.append('C:/Users/Ryan/Desktop/Work')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class ST_BST:

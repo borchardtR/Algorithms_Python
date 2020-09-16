@@ -28,7 +28,7 @@
 
 import sys
 # Added algorithms_python's parent directory to path
-sys.path.append('C:/Users/Ryan/Desktop/Work')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 

@@ -25,7 +25,7 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/')
+sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
 class Graph_Array_AdjacencyLists:
@@ -35,7 +35,7 @@ class Graph_Array_AdjacencyLists:
         if filename==None:
             self.V = V
             self.E = 0
-            self.adj = [Bag_LinkedList()]*self.V
+            self.adj = [Bag_LinkedList() for i in range(self.V)]
         else:
             # The built-in open() function returns a file object that is iterable (you can iterate through each line of the file object)
             file_object = open(filename, 'r')

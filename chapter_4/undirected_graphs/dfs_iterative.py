@@ -1,4 +1,4 @@
-# Title: depthfirstsearch_undirected.py
+# Title: dfs_iterative.py
 # Author: Ryan Borchardt
 
 # This is the iterative version of dfs.py
