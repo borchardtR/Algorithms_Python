@@ -62,7 +62,12 @@ My goals for this project are:
   - [Undirected graph implemented with symbol table](chapter_4/undirected_graphs/symbol_graph.py)<br>
   - [Degrees of separation](chapter_4/undirected_graphs/degrees_of_separation.py)<br>
   
-- #### Directed Graphs <br>
-  
+- #### Directed Graph <br>
+  - [Digraph](chapter_4/directed_graphs/digraph.py)<br>
+  - [Directed DFS](chapter_4/directed_graphs/directed_DFS.py)<br>
+  - [Directed cycle detection](chapter_4/directed_graphs/directed_cycle.py)<br>
+  - [Depth First Order](chapter_4/directed_graphs/depth_first_order.py)<br>
+  - [Topological Sort](chapter_4/directed_graphs/topological.py)<br>
+  - [Kosaraju's computing strong componenets](chapter_4/directed_graphs/kosaraju_scc.py)<br>
   
   
