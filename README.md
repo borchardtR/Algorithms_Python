@@ -64,7 +64,9 @@ My goals for this project are:
   
 - #### Directed Graph <br>
   - [Digraph](chapter_4/directed_graphs/digraph.py)<br>
-  - [Directed DFS](chapter_4/directed_graphs/directed_DFS.py)<br>
+  - [Directed depth first search (recursive)](chapter_4/directed_graphs/directed_dfs.py)<br>
+  - [Path detection directed DFS](chapter_4/directed_graphs/paths_dfs_directed.py)<br>
+  - [Path detection directed BFS](chapter_4/directed_graphs/paths_bfs_directed.py)<br>
   - [Directed cycle detection](chapter_4/directed_graphs/directed_cycle.py)<br>
   - [Depth First Order](chapter_4/directed_graphs/depth_first_order.py)<br>
   - [Topological Sort](chapter_4/directed_graphs/topological.py)<br>
