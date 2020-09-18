@@ -58,6 +58,12 @@ class Queue_LinkedList:
     
     def __iter__(self):
         return Queue_LinkedList._Iterator_Queue_LinkedList(self)
+        
+    def __str__(self):
+        string = ''
+        for node_item in self:
+            string = string + str(node_item) + '\n'
+        return string
     
     
 def main():
