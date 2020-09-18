@@ -1,7 +1,7 @@
 # Title: directed_dfs_orderings.py
 # Author: Ryan Borchardt
 
-# The implementation uses a recursive implementation of depth first search to sort the vertices of the directed graph in the following orders:
+# sorts the vertices of the directed graph in the following orders:
 
 # 1. Preorder: The order of the dfs() calls
 # 2. Postorder: The order in which the vertices are done.

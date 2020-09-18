@@ -3,6 +3,10 @@
 
 # Identifies the strongly connected components in a directed graph.
 
+# This expands the functionality of digraphs to be able to determine:
+# 1. If two given vertices are strongly connected.
+# 2. How many strong componenets are in the digraph
+
 # This implementation takes quadratic time:
     # Creates a Paths_DFS_Directed data structure for each vertex (V*(V+E))
     # Uses two nested for loops to see if there is a path from vertex i to vertex j (V^2 * constant time)
@@ -10,16 +14,14 @@
 
 
 # Example:
-# python scc.py tinyDG.txt ' '
-# python scc.py tinyDG_other.txt ' '
-# python scc.py tinyDAG.txt ' '
+# python scc_quadratic.py tinyDG.txt ' '
+# python scc_quadratic.py tinyDG_other.txt ' '
+# python scc_quadratic.py tinyDAG.txt ' '
 
 import sys
 # Added Algorithms's parent directory to sys.path
 sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.directed_graphs.digraph import Digraph
-from algorithms_python.chapter_4.directed_graphs.directed_cycle import Directed_Cycle
-from algorithms_python.chapter_4.directed_graphs.directed_dfs_orderings import Directed_DFS_Orderings
 from algorithms_python.chapter_4.directed_graphs.paths_dfs_directed import Paths_DFS_Directed
 
 
