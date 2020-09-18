@@ -1,8 +1,6 @@
 # Title: paths_dfs_directed.py
 # Author: Ryan Borchardt
 
-# The implementation uses a recursive implementation of depth first search.
-
 # This class extends the functionality of directed graphs to be able to:
 # 1. Determine if a directed path from a source vertex to a given target vertex exists (single-source reachability)
 # 2. If a path exists, find it. 
