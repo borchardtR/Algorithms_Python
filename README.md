@@ -46,7 +46,7 @@ My goals for this project are:
   - [Symbol table implemented with hash table using linear probing](chapter_3/st_hashtable_linearprobing/st_hashtable_linearprobing.py)<br>
   
   ### Chapter 4
-- #### Undirected Graph<br>
+- #### Undirected Graphs<br>
   - [Undirected graph implemented with array of linked lists](chapter_4/undirected_graphs/graph_array_adjacencylists.py)<br>
   - [Depth first search (recursive)](chapter_4/undirected_graphs/dfs_recursive.py)<br>
   - [Depth first search (iterative)](chapter_4/undirected_graphs/dfs_iterative.py)<br>
@@ -62,15 +62,31 @@ My goals for this project are:
   - [Undirected graph implemented with symbol table](chapter_4/undirected_graphs/symbol_graph.py)<br>
   - [Degrees of separation](chapter_4/undirected_graphs/degrees_of_separation.py)<br>
   
-- #### Directed Graph <br>
+- #### Directed Graphs <br>
   - [Digraph](chapter_4/directed_graphs/digraph.py)<br>
   - [Directed depth first search (recursive)](chapter_4/directed_graphs/directed_dfs.py)<br>
   - [Path detection directed DFS](chapter_4/directed_graphs/paths_dfs_directed.py)<br>
   - [Path detection directed BFS](chapter_4/directed_graphs/paths_bfs_directed.py)<br>
   - [Directed cycle detection](chapter_4/directed_graphs/directed_cycle.py)<br>
   - [Directed DFS Orderings](chapter_4/directed_graphs/directed_dfs_orderings.py)<br>
-  - [Topological Sort](chapter_4/directed_graphs/topological.py)<br>
+  - [Topological sort](chapter_4/directed_graphs/topological.py)<br>
   - [Strongly connected component detection (quadratic)](chapter_4/directed_graphs/scc_quadratic.py)<br>
   - [Strongly connected component detection (Kosaraju)](chapter_4/directed_graphs/scc_kosaraju.py)<br>
-  - [Transitive Closure](chapter_4/directed_graphs/transitive_closure.py)<br>
+  - [Transitive closure](chapter_4/directed_graphs/transitive_closure.py)<br>
+  
+- #### Undirected, edge-weighted Graphs <br>
+  - [Edge](chapter_4/edge_weighted_graphs/edge.py)<br>
+  - [Edge weighted graph](chapter_4/edge_weighted_graphs/edge_weighted_graph.py)<br>
+  - [Minimum spanning tree (Lazy Prim)](chapter_4/edge_weighted_graphs/mst_lazyprim.py)<br>
+  - [Minimum spanning tree (Eager Prim)](chapter_4/edge_weighted_graphs/mst_eagerprim.py)<br>
+  - [Minimum spanning tree (Kruskal)](chapter_4/edge_weighted_graphs/mst_kruskal.py)<br>
+  
+- #### Edge-weighted Digraphs <br>
+  - [Directed Edge](chapter_4/edge_weighted_digraphs/directed_edge.py)<br>
+  - [Edge weighted digraph](chapter_4/edge_weighted_digraphs/edge_weighted_digraph.py)<br>
+  - [Shortest path (Dijkstra)](chapter_4/edge_weighted_digraphs/sp_dijkstra.py)<br>
+  - [Shortest path (Acyclic)](chapter_4/edge_weighted_digraphs/sp_acyclic.py)<br>
+  - [Critical Path Method](chapter_4/edge_weighted_digraphs/cpm.py)<br>
+  - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
+  - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   
   
