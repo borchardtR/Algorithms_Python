@@ -68,7 +68,7 @@ My goals for this project are:
   - [Path detection directed DFS](chapter_4/directed_graphs/paths_dfs_directed.py)<br>
   - [Path detection directed BFS](chapter_4/directed_graphs/paths_bfs_directed.py)<br>
   - [Directed cycle detection](chapter_4/directed_graphs/directed_cycle.py)<br>
-  - [Depth First Order](chapter_4/directed_graphs/depth_first_order.py)<br>
+  - [Directed DFS Orderings](chapter_4/directed_graphs/directed_dfs_orderings.py)<br>
   - [Topological Sort](chapter_4/directed_graphs/topological.py)<br>
   - [Kosaraju's computing strong componenets](chapter_4/directed_graphs/kosaraju_scc.py)<br>
   
