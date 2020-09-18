@@ -70,6 +70,7 @@ My goals for this project are:
   - [Directed cycle detection](chapter_4/directed_graphs/directed_cycle.py)<br>
   - [Directed DFS Orderings](chapter_4/directed_graphs/directed_dfs_orderings.py)<br>
   - [Topological Sort](chapter_4/directed_graphs/topological.py)<br>
-  - [Kosaraju's computing strong componenets](chapter_4/directed_graphs/kosaraju_scc.py)<br>
-  
+  - [Strongly connected component detection (quadratic)](chapter_4/directed_graphs/scc_quadratic.py)<br>
+  - [Strongly connected component detection (Kosaraju)](chapter_4/directed_graphs/scc_kosaraju.py)<br>
+  - [Transitive Closure](chapter_4/directed_graphs/transitive_closure.py)<br>
   

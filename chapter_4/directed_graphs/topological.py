@@ -13,9 +13,6 @@ sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_4.directed_graphs.digraph import Digraph
 from algorithms_python.chapter_4.directed_graphs.directed_cycle import Directed_Cycle
 from algorithms_python.chapter_4.directed_graphs.directed_dfs_orderings import Directed_DFS_Orderings
-from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
-from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
-
 
 class Topological:
     def __init__(self, digraph):
@@ -30,10 +27,6 @@ class Topological:
     def isDag(self):
         return self._order != None
         
- 
-
-        
-
 
 
 def main():
