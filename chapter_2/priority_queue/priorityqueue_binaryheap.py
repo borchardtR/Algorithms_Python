@@ -4,7 +4,6 @@
 # I am implementing the priority queue data structure using a binary heap.
 # I am implementing the binary heap data structure using an array (Python list). The binary-heap is 1-indexed (the first node is at a[1]) with a[0] being unused.
 # I made the priority queue iterable.
-# I am doing this on my own as an exercise.
 
 # Example:
 # python priorityqueue_binaryheap.py

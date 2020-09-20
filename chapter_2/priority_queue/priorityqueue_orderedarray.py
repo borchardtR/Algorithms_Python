@@ -4,7 +4,7 @@
 # I am implementing the priority queue data structure using a resizing array (python list).
 # I am intentionlly NOT using the python list method insert() b/c I wanted to go through the challenge/exercise of doing it myself. 
 # I made the priority queue iterable.
-# I am doing this on my own as an exercise.
+
 
 # The insert() method takes linear time.
 # The delMax() method takes constant time.

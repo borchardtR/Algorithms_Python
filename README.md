@@ -29,12 +29,12 @@ My goals for this project are:
 - #### [Quicksort](chapter_2/quicksort/quicksort.py)<br>
 - #### [Heapsort](chapter_2/heapsort/heapsort.py)<br>
 - #### Priority Queue<br>
-  - [Priority queue implemented with unordered array](chapter_2/priority_queue/priorityqueue_unorderedarray.py)<br>
-  - [Priority queue implemented with ordered array](chapter_2/priority_queue/priorityqueue_orderedarray.py)<br>
-  - [Priority queue implemented with unordered linked list](chapter_2/priority_queue/priorityqueue_unorderedlinkedlist.py)<br>
-  - [Priority queue implemented with ordered linked list](chapter_2/priority_queue/priorityqueue_orderedlinkedlist.py)<br>
-  - [Priority queue implemented with binary heap](chapter_2/priority_queue/priorityqueue_binaryheap.py)<br>
-  
+  - [Priority queue (max) implemented with unordered array](chapter_2/priority_queue/priorityqueue_unorderedarray.py)<br>
+  - [Priority queue (max) implemented with ordered array](chapter_2/priority_queue/priorityqueue_orderedarray.py)<br>
+  - [Priority queue (max) implemented with unordered linked list](chapter_2/priority_queue/priorityqueue_unorderedlinkedlist.py)<br>
+  - [Priority queue (max) implemented with ordered linked list](chapter_2/priority_queue/priorityqueue_orderedlinkedlist.py)<br>
+  - [Priority queue (max) implemented with binary heap](chapter_2/priority_queue/priorityqueue_binaryheap.py)<br>
+  - [Priority queue (min) implemented with binary heap](chapter_2/priority_queue/priorityqueue_min_binaryheap.py)<br>  
   
 ### Chapter 3
 - #### Symbol Table<br>

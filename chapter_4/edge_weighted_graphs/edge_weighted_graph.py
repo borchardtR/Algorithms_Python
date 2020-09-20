@@ -16,7 +16,7 @@ import sys
 sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
 from algorithms_python.chapter_4.edge_weighted_graphs.edge import Edge
-from algorithms_python.chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
+
 
 
 class Edge_Weighted_Graph:
