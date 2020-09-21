@@ -4,7 +4,7 @@
 
 # QuickUnion 
 
-# The constructor involves n append() operations. append() is constant amortized time, so the order of growth of the constructor is n (linear)
+# The constructor involves s append() operations. append() is constant amortized time, so the order of growth of the constructor is s (linear)
 # The method count() takes constant time.
 # The method find() depends on the input. 
 #   It takes anywhere between constant time (best-case scenario where each site is its own root site / component) and 
@@ -14,14 +14,18 @@
 
 # The test client main(): 
     # takes in the number of sites from random input (1, constant)
-    # Runs the constructor for UF_basic (n, linear)
-    # Runs the Union method() n times (beween n*1 and n*n so between linear time and quadratic time)
+    # Runs the constructor for UF_basic (s, linear)
+    # Runs the Union method() c times (beween c*1 and c*s so between linear time and quadratic time)
     # Runs the count() method (1, constant)
     # Runs the connected method twice (between constant and linear time).
     
-    # Overall, the test client for quick union has an order of growth between linear and quadratic, depending on the input. 
+    # Overall, the test client for quick union has an order of growth between linear and quadratic, depending on the input.
+
+    # tinyUF.txt has 10 sites (s=10) w/ 11 connections (c=11).
+    # mediumUF.txt has 625 sites (s=625) w/ 900 connections (c=900)
+    # largeUF.txt has 1 million sites (s=1 mil) w/ 2 million connections (c=2 mil)    
     
-    # This means that quick union in the best case performs markedly better than quickfind (order of growths n vs n^2) but in the worst case performs similarly (order of growths n^2 vs n^2).
+    # This means that quick union in the best case performs markedly better than quickfind (order of growths c vs s*c) but in the worst case performs similarly (order of growths s*c vs s*c).
     # Therfore, quick union performing better than quick find is not guaranteed.
     
 # Example:

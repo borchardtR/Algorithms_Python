@@ -3,25 +3,52 @@
 
 # Weighted QuickUnion 
 
-# The constructor involves n append() operations. append() is constant amortized time, so the order of growth of the constructor is n (linear)
+"""
+The key to understanding the difference between quick_union and weighted_quick_union  
+is understanding that the find() operation takes time (at most) proportional to the tree height (and at best constant). 
+
+quick_union can have a tree height between 1 and s (# of sites).
+
+weighted_quick_union can have a tree height between 1 and lg(s). 
+
+The reason for this is that weighted_quick_union restricts the height of a tree to a max of lg(s) 
+by when adding two trees together you assign the small tree to be connected to the larger tree (size of tree is determined by # of nodes/sites in the tree). 
+
+Best case: 
+By always connecting smaller tree to larger tree, the size of the tree increases while the height of the tree stays the same. 
+See Proposition H on p.229 for the mathematical proof.
+
+Worst case:
+Both trees are the same size so choose one to connect to other. 
+The size (# of nodes/sites) of the tree doubles while the height (max depth of the tree) increases by 1. 
+This is logarithmic growth.
+"""
+
+# The constructor involves 2s append() operations. append() is constant amortized time, so the order of growth of the constructor is s (linear)
 # The method count() takes constant time.
 # The method find() depends on the input. 
 #   It takes anywhere between constant time (best-case scenario where each site is its own root site / component) and 
-#   logarithmic time (worst-case scenario where there is only one component and the site p is at the very bottom, the max depth of tree is lg(N) b/c the small tree is always added to larger tree). 
+#   logarithmic time (worst-case scenario where there is only one component and the site p is at the very bottom, the max depth of tree is lg(s) b/c the small tree is always added to larger tree). 
 # The connected() method uses the find() method so it depends on the input. Best case is constant time, worst case logarithmic time.
 # The union() method uses the find() method so it depends on the input as well. Best case is constant time, worst case logarithmic time.
 
 # The test client main(): 
     # takes in the number of sites from random input (1, constant)
-    # Runs the constructor for UF_basic (n, linear)
-    # Runs the Union method() n times (beween n*1 and n*lg(N) so between linear time and linearithmic time)
+    # Runs the constructor for UF_basic (s, linear)
+    # Runs the Union method() c times (beween c*1 and c*lg(s) so between linear time and linearithmic time)
     # Runs the count() method (1, constant)
-    # Runs the connected method twice (between constant and linear time).
+    # Runs the connected method twice (between constant and logarithmic time).
     
     # Overall, the test client for quick union has an order of growth between linear and linearithmic, depending on the input. 
     
-    # This means that weighted quick union in the best case performs markedly better than quickfind (order of growths n vs n^2) and performs better in the worst case too(order of growths nlog(n) vs n^2).
-  
+    # tinyUF.txt has 10 sites (s=10) w/ 11 connections (c=11).
+    # mediumUF.txt has 625 sites (s=625) w/ 900 connections (c=900)
+    # largeUF.txt has 1 million sites (s=1 mil) w/ 2 million connections (c=2 mil)     
+    
+    
+    # This means that weighted quick union in the best case performs markedly better than quickfind (order of growths c vs c*s) and performs better in the worst case too(order of growths c*log(s) vs c*s).
+    # Weighted quick union in the best case performs similar to quickunion in the best case: (c vs c) but weighted quick union performs better in the worse case ( c*log(s) vs c*s) 
+
 # Example:
 # python UF_weightedquickunion.py < tinyUF.txt       
     
