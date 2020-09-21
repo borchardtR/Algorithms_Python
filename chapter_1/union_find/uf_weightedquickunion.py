@@ -56,7 +56,7 @@ This is logarithmic growth.
 import sys
 import time
  
-class uf_weightedquickunion:
+class UF_WeightedQuickUnion:
     def __init__(self, num_sites):
         self.component_count = num_sites
         self.id = []
@@ -106,7 +106,7 @@ def main():
     # Test client to take in sequence of integers file from standard input
     num_sites = int(sys.stdin.readline())
     
-    UF_structure = uf_weightedquickunion(num_sites)
+    UF_structure = UF_WeightedQuickUnion(num_sites)
     
     for line in sys.stdin:
         pair_list = line.split(" ")

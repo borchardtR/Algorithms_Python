@@ -30,7 +30,7 @@
 import sys
 import time
 
-class uf_quickfind:
+class UF_QuickFind:
     def __init__(self, num_sites):
         self.component_count = num_sites
         self.id = []
@@ -68,7 +68,7 @@ def main():
     # Test client to take in sequence of integers file from standard input
     num_sites = int(sys.stdin.readline())
     
-    UF_structure = uf_quickfind(num_sites)
+    UF_structure = UF_QuickFind(num_sites)
     
     for line in sys.stdin:
         pair_list = line.split(" ")

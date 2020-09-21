@@ -28,7 +28,7 @@
 import sys
 import time
 
-class uf_basic:
+class UF_Basic:
     def __init__(self, num_sites):
         self.component_count = num_sites
         self.id = []
@@ -66,7 +66,7 @@ def main():
     # Test client to take in sequence of integers file from standard input
     num_sites = int(sys.stdin.readline())
     
-    UF_structure = uf_basic(num_sites)
+    UF_structure = UF_Basic(num_sites)
     
     for line in sys.stdin:
         pair_list = line.split(" ")
