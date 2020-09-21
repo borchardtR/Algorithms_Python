@@ -1,7 +1,8 @@
 # Title: uf_basic.py
 # Author: Ryan Borchardt
 
-# This is my personal own initial implementation of UnionFind. 
+
+# uf_basic.py and uf_quickfind.py are the exact same.
 # The constructor involves n append() operations. append() is constant amortized time, so the order of growth of the constructor is n (linear).
 # The union() method has a linear order of growth (n). 
 # The find() method has a constant order of growth (1).

@@ -1,12 +1,12 @@
-# Title: mst_lazyprim.py
+# Title: mst_eagerprim.py
 # Author: Ryan Borchardt
 
-# Determines the minimum spanning tree of an edge weighted graph using Prim's (lazy) implementation.
+# Determines the minimum spanning tree of an edge weighted graph using Prim's (eager) implementation.
 
 # Takes E*lg(E) time (worst-case is E inserts() to minPQ of length E and E deletes of minPQ of length E ) and E space (worst-case is minPQ contains E edges)
 
 # Example:
-# python mst_lazyprim.py tinyEWG.txt ' '
+# python mst_eagerprim.py tinyEWG.txt ' '
 
 
 import sys
@@ -19,7 +19,7 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 from algorithms_python.chapter_2.priority_queue.priorityqueue_min_binaryheap import PriorityQueue_Min_BinaryHeap
 
 
-class MST_LazyPrim:
+class MST_EagerPrim:
     def __init__(self, ewg):
         self.mst_vertices = [False]*ewg.V()
         self.mst_edges = Queue_LinkedList()
@@ -67,7 +67,7 @@ class MST_LazyPrim:
 
 def main():
     ewg = Edge_Weighted_Graph(filename=sys.argv[1], delimiter=sys.argv[2])
-    mst = MST_LazyPrim(ewg)
+    mst = MST_EagerPrim(ewg)
     
     print('Edges in MST:')
     print(mst.edges())

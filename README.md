@@ -16,8 +16,10 @@ My goals for this project are:
   - [Queue implemented with linked list](chapter_1/queue/queue_linkedlist.py)<br>
 - #### Bag<br>
   - [Bag implemented with linked list](chapter_1/bag/bag_linkedlist.py)<br>
-  
-  
+- #### Union Find<br>
+  - [Union Quick Find](chapter_1/union_find/uf_quickfind.py)<br>  
+  - [Union Quick Union](chapter_1/union_find/uf_quickunion.py)<br>
+  - [Union Weighted Quick Union](chapter_1/union_find/uf_weightedquickunion.py)<br>  
   
 ### Chapter 2
 - #### [Selection sort](chapter_2/selection_sort/selection_sort.py)<br>
@@ -90,3 +92,6 @@ My goals for this project are:
   - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
   - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   
   
+
+  ### Chapter 5
+  - [Tries](chapter_5/tries.py)<br>
