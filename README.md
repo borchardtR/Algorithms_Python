@@ -38,6 +38,9 @@ My goals for this project are:
   - [Priority queue (max) implemented with binary heap](chapter_2/priority_queue/priorityqueue_binaryheap.py)<br>
   - [Priority queue (min) implemented with binary heap](chapter_2/priority_queue/priorityqueue_min_binaryheap.py)<br>  
   
+- #### Indexed Priority Queue<br>
+  - [(Standard) Indexed (min) priority queue implemented with binary heap](chapter_2/priority_queue/indexed_priorityqueue_min_standard.py)<br>  
+  - [(Custom) Indexed (min) priority queue implemented with binary heap](chapter_2/priority_queue/indexed_priorityqueue_min_custom.py)<br>   
 ### Chapter 3
 - #### Symbol Table<br>
   - [Symbol table implemented with unordered linked list](chapter_3/st_sequentialsearch_unorderedlinkedlist/st_sequentialsearch_unorderedlinkedlist.py)<br>

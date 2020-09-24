@@ -176,41 +176,63 @@ class Binary_Heap:
 
 def main():
     PQ = PriorityQueue_Min_BinaryHeap()
-    PQ.insert('red')
-    PQ.insert('blue')
+   
     
-    print('Priority Queue:')
-    for i in PQ:
-        print(i)
-    print('Size: ', PQ.size())
-    print('\n')
-    
-    PQ.insert('green')
-    
-    print('Priority Queue:')
-    for i in PQ:
-        print(i)
-    print('Size: ', PQ.size())
-    print('\n')
-    
-    PQ.insert('yellow')
-    
-    print('Priority Queue:')
-    for i in PQ:
-        print(i)
-    print('Size: ', PQ.size())
-    print('\n')
-        
-    PQ.insert('brown')
-    PQ.insert('grey')
-    
-    # I made the priority queue iterable
-    print('Priority Queue:')
-    for i in PQ:
-        print(i)
 
+    # Lets say we are dealing with distances from s to vertices v:
+    # This priority queue removes the min distance in lg(N) time and inserts an edge-weight in lg(N) time.
+    # These edge weights were taken from tinyEWD.txt
+    PQ.insert(0.35)
+    PQ.insert(0.35)
+    
+    print('Priority Queue:')
+    for i in PQ:
+        print(i)
     print('Size: ', PQ.size())
-    print('\n')    
+    print('\n')
+    
+    PQ.insert(0.37)
+    PQ.insert(0.28)
+    PQ.insert(0.28)
+    PQ.insert(0.32)
+    PQ.insert(0.38)
+    
+    print('Priority Queue:')
+    for i in PQ:
+        print(i)
+    print('Size: ', PQ.size())
+    print('\n')
+    
+    PQ.insert(0.26)
+    PQ.insert(0.39)
+    PQ.insert(0.29)
+    PQ.insert(0.34)
+    
+    print('Priority Queue:')
+    for i in PQ:
+        print(i)
+    print('Size: ', PQ.size())
+    print('\n')
+    
+    PQ.insert(0.40)
+    PQ.insert(0.52)
+    PQ.insert(0.58)
+    
+    print('Priority Queue:')
+    for i in PQ:
+        print(i)
+    print('Size: ', PQ.size())
+    print('\n')
+    
+    PQ.insert(0.93)
+    
+    print('Priority Queue:')
+    for i in PQ:
+        print(i)
+    print('Size: ', PQ.size())
+    print('\n')
+    
+    
     
     print('Deleted minimum: ', PQ.delMin())
     print('Priority Queue:')
