@@ -123,13 +123,19 @@ class Indexed_PriorityQueue_Min:
         self.node_count -= 1
         self._sink(1)
     
+    # Returns the index with the smallest priority level / smallest key value
+    def minIndex(self):
+        index = self.pq[1]
+        key = self.keys[index]
+        return index
+        
     # Returns the smallest priority level / smallest key value
     def min(self):
         index = self.pq[1]
         key = self.keys[index]
         return key
     
-    # Returns the smallest priority level / smallest key value
+    # Returns the index with the smallest priority level / smallest key value
     # Deletes the smallest key value and its correspoding index (from self.keys, self.pq and self.qp)
     def delMin(self):
         index = self.pq[1]
@@ -147,7 +153,7 @@ class Indexed_PriorityQueue_Min:
         #self.node_count -= 1
         # Remove key
         del self.keys[index]
-        return key
+        return index
 
 
     

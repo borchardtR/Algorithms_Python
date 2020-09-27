@@ -81,16 +81,16 @@ class Indexed_PriorityQueue_Min:
         return self.node_count==0
     
     def insert(self, index, key):
-        self.keys[self.node_count] = key
+        self.keys[index] = key
         
         self.pq[self.node_count+1] = index
         self.qp[index] = self.node_count+1
         
         self._swim(self.node_count+1)
-        
+        self.node_count +=1
         # self.qp is updated in the _swim() operation
         
-        self.node_count +=1
+        
     
     # Takes in an index value and returns True if the index is in the indexed_priority_queue
     def contains(self, index):
@@ -119,13 +119,19 @@ class Indexed_PriorityQueue_Min:
         self.node_count -= 1
         self._sink(1)
     
+    # Returns the index with the smallest priority level / smallest key value
+    def minIndex(self):
+        index = self.pq[1]
+        key = self.keys[index]
+        return index
+        
     # Returns the smallest priority level / smallest key value
     def min(self):
         index = self.pq[1]
         key = self.keys[index]
         return key
     
-    # Returns the smallest priority level / smallest key value
+    # Returns the index with the smallest priority level / smallest key value
     # Deletes the smallest key value and its correspoding index (from self.keys, self.pq and self.qp)
     def delMin(self):
         index = self.pq[1]
@@ -143,7 +149,7 @@ class Indexed_PriorityQueue_Min:
         #self.node_count -= 1
         # Remove key
         self.keys[index] = None
-        return key
+        return index
 
 
     
@@ -162,7 +168,6 @@ class Indexed_PriorityQueue_Min:
        
         i_node_index = self.pq[i_node_pqindex]
         i_node_key = self.keys[i_node_index]
-        
         while parent_node_key >= i_node_key:
             # Exchange the parent_node_index and i_node_index in the priority queue:
             self.pq[i_node_pqindex] = parent_node_index

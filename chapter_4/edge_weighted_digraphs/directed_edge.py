@@ -20,7 +20,7 @@ class Directed_Edge:
         return self._weight
     
     #from is a Python keyword.
-    # It is bad practice to use keywords as a variable name, function name, instance method name etc.
+    # It is bad practice to use keywords as a variable name, function name, instance method name etc so I use from_vert() instead.
     def from_vert(self):
         return self._from_vert
     

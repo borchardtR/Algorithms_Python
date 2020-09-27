@@ -4,7 +4,7 @@ Author: Ryan Borchardt
 
 This implements an edge-weighted digraph using an array of linked lists where the nodes in each linked list contain references to Directed edge objects 
 The implementation is very similar to edge_weighted_graph.py except for a given vertex and its corresponding element in the array, 
-    its linked list only contains references to directed edge objects that point from the vertex (rather than all edges connected to that vertex).
+    its linked list only contains references to directed edge objects that point FROM the vertex (rather than all edges connected to that vertex).
 Each element in the array corresponds to a vertex and each of its elements contains a reference linked list where all of the edges from that particular vertex are listed.
 Each node in a linked list contains a reference to a Directed_Edge object (in the node's self.item instance variable).
 
