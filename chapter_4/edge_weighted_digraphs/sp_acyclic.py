@@ -4,16 +4,31 @@ Author: Ryan Borchardt
 
 Implementation of API on page 645.
 
-Assumes that the edge-weighted digraph is acyclic.
+This module required implementing directed_weighted_cycle.py, directed_dfs_orderings_ewd.py and topological_ewd.py 
+
+Advantages over sp_dijkstra:
+1. Works for graphs w/ negative weights.
+2. Faster run time E*lg(V) vs E+V.
+
+Assumptions:
+1. Assumes that the edge-weighted digraph is acyclic.
+2. Requires that we know the vertex with highest precedence order (as the source vertex) in the acyclic weighted digraph.
 
 Takes space proportional to V.
 
-Takes time proportional to E*lg(V) (worst-case)
-    Requires E swim() operations and V sink() operations in that worst case.
+Takes time proportional to E+V.
+    Involves doing a topogological sort of the ewdg:
+        cycle detection (directed_weighted_cycle.py) uses dfs which takes time proprotional to E+V.
+        getting the reverse postorder (directed_dfs_orderings_ewd.py) uses dfs which takes time proprotional to E+V.
+    Involves a call to relax() for each vertex. At each vertex, relax does the following: (this sums to E+V run time)
+        Add vertex to the tree (this is done V*1 = V total times) 
+        Iterate through adjacency list and do a series of constant time operations (this is done V*(num_neighbors(V)*1) = E total time)
+        
+        
 
 
 Example:
-python sp_acyclic.py tinyEWDAG.txt ' ' 0
+python sp_acyclic.py tinyEWDAG.txt ' ' 5
 
 """
 
@@ -23,7 +38,7 @@ sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 from algorithms_python.chapter_4.edge_weighted_digraphs.directed_edge import Directed_Edge
 from algorithms_python.chapter_4.edge_weighted_digraphs.edge_weighted_digraph import Edge_Weighted_Digraph
-from algorithms_python.chapter_4.directed_graphs.topological import Topological
+from algorithms_python.chapter_4.edge_weighted_digraphs.topological_ewd import Topological
 
 
 class Shortest_Paths:
@@ -35,17 +50,17 @@ class Shortest_Paths:
               
         self.s = s
         # some way of determining the order methodology of choosing v:
-        
         topological_order_stack = Topological(ewdg).order()
-        
+        print(topological_order_stack)
         
 
         while topological_order_stack.isEmpty()==False:
-            v = topological_order.pop()
+            v = topological_order_stack.pop()
             self.relax(ewdg,v)
     
     # vertex or edge relaxation
     def relax(self, ewdg, v):
+        print('The shortest path to vertex ', v, 'has been permanently determined.')
         print("from vertex: ",v)
         for edge in ewdg.adjacent(v):
             print('Edge: ', edge)
@@ -57,13 +72,8 @@ class Shortest_Paths:
                 self.edgeTo[w] = edge
                 
                 self._distTo[w] = self._distTo[v] + edge.weight()
+                self.edgeTo[w] = edge
                 print("towards vertex", w)
-                if self.ipq.contains(w):
-                    print('The vertex is already on the priority queue')
-                    self.ipq.change(w,self._distTo[w])
-                else:
-                    print('The vertex was not on the priority queue')
-                    self.ipq.insert(w,self._distTo[w])
             else:
                 print('This edge is ineligible')
         print('\n')

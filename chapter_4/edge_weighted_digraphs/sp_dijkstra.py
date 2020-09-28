@@ -44,11 +44,11 @@ class Shortest_Paths:
         while self.ipq.isEmpty()==False:
             # self.ipq.delMin() returns the vertex with the smallest distance value.
             v = self.ipq.delMin()
-            print('The shortest path to vertex ', v, 'has been permanently determined.')
             self.relax(ewdg,v)
     
     # vertex or edge relaxation
     def relax(self, ewdg, v):
+        print('The shortest path to vertex ', v, 'has been permanently determined.')
         print("from vertex: ",v)
         for edge in ewdg.adjacent(v):
             print('Edge: ', edge)
