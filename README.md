@@ -91,7 +91,8 @@ My goals for this project are:
   - [Edge weighted digraph](chapter_4/edge_weighted_digraphs/edge_weighted_digraph.py)<br>
   - [Shortest path (Dijkstra)](chapter_4/edge_weighted_digraphs/sp_dijkstra.py)<br>
   - [Shortest path (edge-weighted DAG)](chapter_4/edge_weighted_digraphs/sp_acyclic.py)<br>
-  - [Critical Path Method](chapter_4/edge_weighted_digraphs/cpm.py)<br>
+  - [Longest path (edge-weighted DAG)](chapter_4/edge_weighted_digraphs/lp_acyclic.py)<br>
+  - [Parallel precedence-constrained scheduling (critical path method)](chapter_4/edge_weighted_digraphs/cpm.py)<br>
   - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
   - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   
   
