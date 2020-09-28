@@ -92,7 +92,7 @@ class Symbol_Graph:
         return self.graph
         
     def __str__(self):
-        returned_string = str(self.graph.V) + ' verticies, ' + str(self.graph.E) + ' edges.' + '\n'
+        returned_string = str(self.graph._V) + ' verticies, ' + str(self.graph._E) + ' edges.' + '\n'
         current_index=0
         for llbag in self.graph.adj:
             ll = self.graph.adj[current_index]

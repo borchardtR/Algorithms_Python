@@ -14,11 +14,11 @@
 import sys
 sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
-from algorithms_python.chapter_4.undirected_graphs.graph_arraylinkedlists import Graph_ArrayLinkedLists
+from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 
 class Depth_First_Search:
     def __init__(self, graph, s):
-        self.marked_array = [False]*graph.num_V()
+        self.marked_array = [False]*graph.V()
         self.count_connected = 0
         
         self.dfs(graph,s)
@@ -47,7 +47,7 @@ class Depth_First_Search:
 def main():
     filename = sys.argv[1]
     delimiter = sys.argv[2]
-    graph = Graph_ArrayLinkedLists(filename=filename, delimiter=delimiter)
+    graph = Graph_Array_AdjacencyLists(filename=filename, delimiter=delimiter)
     s = int(sys.argv[3])
     
     dfs_structure = Depth_First_Search(graph,s)

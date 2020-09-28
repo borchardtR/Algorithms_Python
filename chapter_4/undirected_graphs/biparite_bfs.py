@@ -20,11 +20,11 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class Biparite:
     def __init__(self, graph):
-        self.marked_array = [False]*graph.num_V()
-        self.biparite_array = [False]*graph.num_V()
+        self.marked_array = [False]*graph.V()
+        self.biparite_array = [False]*graph.V()
         self._isBiparite = True
         
-        for i in range(graph.num_V()):
+        for i in range(graph.V()):
             if self.marked_array[i] == False:
                 self.bfs(graph,i)
         

@@ -19,11 +19,11 @@ from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists im
 
 class CC:
     def __init__(self, graph):
-        self._marked_array = [False]*graph.num_V()
-        self._id = [None]*graph.num_V()
+        self._marked_array = [False]*graph.V()
+        self._id = [None]*graph.V()
         self._count = 0
         # For each vertex, determine all of the other verticies that are connected to it.
-        for i in range(graph.num_V()):
+        for i in range(graph.V()):
             if self._marked_array[i] != True:
                 self._dfs(graph, i)
                 self._count += 1
@@ -57,7 +57,7 @@ def main():
     print(cc.count(), " components.")
     
     component_list = [list() for i in range(cc._count)]
-    for i in range(graph.num_V()):
+    for i in range(graph.V()):
         component_list[cc.id(i)].append(i)
     
     for i in range(cc._count):

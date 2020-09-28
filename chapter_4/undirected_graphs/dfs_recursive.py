@@ -40,7 +40,7 @@ from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists im
 
 class DFS_Recursive:
     def __init__(self, graph, s):
-        self.marked_array = [False]*graph.num_V()
+        self.marked_array = [False]*graph.V()
         self.count_connected = 0
         
         self.dfs(graph, s)

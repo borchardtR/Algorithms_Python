@@ -18,11 +18,11 @@ from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists im
 
 class Biparite:
     def __init__(self, graph):
-        self._marked_array = [False]*graph.num_V()
-        self._biparite_array = [False]*graph.num_V()
+        self._marked_array = [False]*graph.V()
+        self._biparite_array = [False]*graph.V()
         self._biparite = True
         # For each vertex, determine all of the other verticies that are connected to it.
-        for i in range(graph.num_V()):
+        for i in range(graph.V()):
             if self._marked_array[i] != True:
                 self._dfs(graph, i)
         

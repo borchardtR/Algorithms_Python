@@ -21,10 +21,10 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class Cycle:
     def __init__(self, graph):
-        self._marked_array = [False]*graph.num_V()
-        self.prev_vertex = [None]*graph.num_V()
+        self._marked_array = [False]*graph.V()
+        self.prev_vertex = [None]*graph.V()
         self.has_cycle = False
-        for i in range(graph.num_V()):
+        for i in range(graph.V()):
             if self._marked_array[i] == False:
                 self.bfs(graph, i)
     

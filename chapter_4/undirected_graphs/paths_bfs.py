@@ -20,8 +20,8 @@ from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_Resizing
 
 class Paths_bfs:
     def __init__(self, graph, s):
-        self.path_array = [None]*graph.num_V()
-        self.marked_array = [False]*graph.num_V()
+        self.path_array = [None]*graph.V()
+        self.marked_array = [False]*graph.V()
         self.s = s
         
         self.bfs(graph, s)
@@ -66,7 +66,7 @@ def main():
     print(paths.pathTo(1))
     
     # the pathTo() method returns a stack object (which I have designed to be iterable) so for i in stack_object iterates through the items in each node of the bag
-    for i in range(graph.num_V()):
+    for i in range(graph.V()):
         string = "0 to " + str(i) +": "
         for j in paths.pathTo(i):
             if j != i:

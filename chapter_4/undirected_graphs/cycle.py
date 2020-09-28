@@ -19,11 +19,11 @@ from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists im
 
 class Cycle:
     def __init__(self, graph):
-        self._marked_array = [False]*graph.num_V()
+        self._marked_array = [False]*graph.V()
         self._cycle = False
         # For each vertex, determine if there exists a cycle
-        for i in range(graph.num_V()):
-            self._marked_array = [False]*graph.num_V()
+        for i in range(graph.V()):
+            self._marked_array = [False]*graph.V()
             self._dfs(graph, i, i)
         
     def _dfs(self, graph, v, prev_vertex):
