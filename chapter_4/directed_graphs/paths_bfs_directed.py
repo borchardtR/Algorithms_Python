@@ -21,8 +21,8 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 class Paths_BFS_Directed:
     def __init__(self, digraph, s):
         self.digraph = digraph
-        self.marked_array = [False]*self.digraph.num_V()
-        self.paths_array = [None]*self.digraph.num_V()
+        self.marked_array = [False]*self.digraph.V()
+        self.paths_array = [None]*self.digraph.V()
         self.s = s
         
         self.marked_array[self.s] = True

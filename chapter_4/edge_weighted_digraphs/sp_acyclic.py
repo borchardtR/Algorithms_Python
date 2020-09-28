@@ -1,10 +1,10 @@
 """
-Title: sp_dijkstra.py
+Title: sp_acyclic.py
 Author: Ryan Borchardt
 
 Implementation of API on page 645.
 
-Assumes non-negative edges.
+Assumes that the edge-weighted digraph is acyclic.
 
 Takes space proportional to V.
 
@@ -12,9 +12,8 @@ Takes time proportional to E*lg(V) (worst-case)
     Requires E swim() operations and V sink() operations in that worst case.
 
 
-
 Example:
-python sp_dijkstra.py tinyEWD.txt ' ' 0
+python sp_acyclic.py tinyEWDAG.txt ' ' 0
 
 """
 
@@ -24,7 +23,7 @@ sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 from algorithms_python.chapter_4.edge_weighted_digraphs.directed_edge import Directed_Edge
 from algorithms_python.chapter_4.edge_weighted_digraphs.edge_weighted_digraph import Edge_Weighted_Digraph
-from algorithms_python.chapter_2.priority_queue.indexed_priorityqueue_min_standard import Indexed_PriorityQueue_Min
+from algorithms_python.chapter_4.directed_graphs.topological import Topological
 
 
 class Shortest_Paths:
@@ -37,14 +36,12 @@ class Shortest_Paths:
         self.s = s
         # some way of determining the order methodology of choosing v:
         
-        self.ipq = Indexed_PriorityQueue_Min(max_nodes=ewdg.V())
-        self.ipq.insert(self.s,0)
+        topological_order_stack = Topological(ewdg).order()
+        
         
 
-        while self.ipq.isEmpty()==False:
-            # self.ipq.delMin() returns the vertex with the smallest distance value.
-            v = self.ipq.delMin()
-            print('The shortest path to vertex ', v, 'has been permanently determined.')
+        while topological_order_stack.isEmpty()==False:
+            v = topological_order.pop()
             self.relax(ewdg,v)
     
     # vertex or edge relaxation

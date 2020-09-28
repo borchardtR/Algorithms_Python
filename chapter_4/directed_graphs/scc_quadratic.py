@@ -27,19 +27,19 @@ from algorithms_python.chapter_4.directed_graphs.paths_dfs_directed import Paths
 
 class SCC:
     def __init__(self, digraph):
-        self.scc_id = [None]*digraph.num_V()
+        self.scc_id = [None]*digraph.V()
         self.paths_array = []
         self.scc_count = -1
         
-        for i in range(digraph.num_V()):
+        for i in range(digraph.V()):
             self.paths_array.append(Paths_DFS_Directed(digraph,i))
         
-        for i in range(digraph.num_V()):
+        for i in range(digraph.V()):
             if self.scc_id[i] == None:
                 self.scc_count += 1
                 print('New component', i)
                 self.scc_id[i] = self.scc_count
-                for j in range(digraph.num_V()):
+                for j in range(digraph.V()):
                     # If this is true, then vertices i and j are strongly connected.
                     if (self.scc_id[j] == None) and (i!=j):
                         if self.paths_array[i].hasPathTo(j) and self.paths_array[j].hasPathTo(i):

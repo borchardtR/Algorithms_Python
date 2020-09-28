@@ -19,7 +19,7 @@ from algorithms_python.chapter_4.directed_graphs.digraph import Digraph
 class Directed_DFS:
     def __init__(self, digraph, *args):
         self.digraph = digraph
-        self.marked_array = [False]*self.digraph.num_V()
+        self.marked_array = [False]*self.digraph.V()
         
         for s in args:
             self.marked_array[s] = True

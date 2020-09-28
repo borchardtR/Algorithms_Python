@@ -83,13 +83,14 @@ My goals for this project are:
   - [Edge](chapter_4/edge_weighted_graphs/edge.py)<br>
   - [Edge weighted graph](chapter_4/edge_weighted_graphs/edge_weighted_graph.py)<br>
   - [Minimum spanning tree (Lazy Prim)](chapter_4/edge_weighted_graphs/mst_lazyprim.py)<br>
+  - [Minimum spanning tree (Eager Prim)](chapter_4/edge_weighted_graphs/mst_eagerprim.py)  (Still need to do)<br>
   - [Minimum spanning tree (Kruskal)](chapter_4/edge_weighted_graphs/mst_kruskal.py)<br>
   
 - #### Edge-weighted Digraphs <br>
   - [Directed Edge](chapter_4/edge_weighted_digraphs/directed_edge.py)<br>
   - [Edge weighted digraph](chapter_4/edge_weighted_digraphs/edge_weighted_digraph.py)<br>
   - [Shortest path (Dijkstra)](chapter_4/edge_weighted_digraphs/sp_dijkstra.py)<br>
-  - [Shortest path (Acyclic)](chapter_4/edge_weighted_digraphs/sp_acyclic.py)<br>
+  - [Shortest path (edge-weighted DAG)](chapter_4/edge_weighted_digraphs/sp_acyclic.py)<br>
   - [Critical Path Method](chapter_4/edge_weighted_digraphs/cpm.py)<br>
   - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
   - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   

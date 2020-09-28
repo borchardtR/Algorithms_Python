@@ -22,13 +22,13 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 class Directed_DFS_Orderings:
     def __init__(self, digraph):
         self.digraph = digraph
-        self.marked_array = [False]*self.digraph.num_V()
+        self.marked_array = [False]*self.digraph.V()
         
         self.pre_order = Queue_LinkedList()
         self.post_order = Queue_LinkedList()
         self.reverse_post_order = Stack_ResizingArray()
         
-        for i in range(self.digraph.num_V()):
+        for i in range(self.digraph.V()):
             if self.marked_array[i] != True:
                 self.dfs(i)
         

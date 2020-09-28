@@ -25,7 +25,7 @@ class Transitive_Closure:
     def __init__(self, digraph):
         self.array_directed_dfs = []
         
-        for i in range(digraph.num_V()):
+        for i in range(digraph.V()):
             self.array_directed_dfs.append(Directed_DFS(digraph,i))
     def reachable(self, v, w):
         return self.array_directed_dfs[v].marked(w)

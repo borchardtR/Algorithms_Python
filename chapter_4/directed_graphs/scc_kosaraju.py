@@ -28,8 +28,8 @@ from algorithms_python.chapter_4.directed_graphs.directed_dfs_orderings import D
 class SCC:
     def __init__(self, digraph):
         self.digraph = digraph
-        self.marked_array = [False]*self.digraph.num_V()
-        self.id_array = [None]*self.digraph.num_V()
+        self.marked_array = [False]*self.digraph.V()
+        self.id_array = [None]*self.digraph.V()
         self.count_val = 0
         reverse_digraph = self.digraph.reverse()
         reverse_post_order_stack = Directed_DFS_Orderings(reverse_digraph).reversepostorder()

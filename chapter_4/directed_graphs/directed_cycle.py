@@ -23,11 +23,11 @@ class Directed_Cycle:
         self.digraph = digraph
         # This is used to keep track of whether a vertex has been encountered or not.
         # This way dfs() will only run at most once for each vertex
-        self.marked_array = [False]*self.digraph.num_V()
+        self.marked_array = [False]*self.digraph.V()
         
         # This array is used to build the cycle_stack
         # For a given index
-        self.paths_array = [None]*self.digraph.num_V()
+        self.paths_array = [None]*self.digraph.V()
         
         # This stack stays empty until a cycle is detected.
         # If a cycle is detected, all of the vertices along the cycle are added to the stack
@@ -37,9 +37,9 @@ class Directed_Cycle:
         # This array keeps track of whether a vertex is still on the call stack.
         # If we encounter a vertex that is still on the call stack, then we know a cycle exists (similar to how if the end of the string re-encounters the string in the Tremaux maze)
         # The value at a given index is turned to True while it is on the call stack and turned to False when dfs finishes (and it is no longer on the call stack)
-        self.onStack = [False]*self.digraph.num_V()
+        self.onStack = [False]*self.digraph.V()
         
-        for i in range(self.digraph.num_V()):
+        for i in range(self.digraph.V()):
             # This way dfs goes through all vertices even if in different components.
             if self.marked_array[i] != True:
                 self.dfs(i)
