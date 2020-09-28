@@ -2,7 +2,7 @@
 # Author: Ryan Borchardt
 
 # This implementation utilizes breadth first search.
-# The breadth first search version of this program requires an extra array (of length V) of space.
+# The breadth first search version of this program requires an extra array (of length V) of space in order to store the previous vertex.
 
 # This class extends the functionality of undirected graphs to be able to:
 # 1. Determine if a graph contains a cycle or if it is acyclic.
