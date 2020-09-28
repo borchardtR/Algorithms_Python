@@ -1,14 +1,12 @@
 """
-Title: sp_acyclic.py
+Title: lp_acyclic.py
 Author: Ryan Borchardt
 
-Implementation of API on page 645.
-
-This module required implementing directed_weighted_cycle.py, directed_dfs_orderings_ewd.py and topological_ewd.py 
-
-Advantages over sp_dijkstra:
-1. Works for graphs w/ negative weights.
-2. Faster run time E*lg(V) vs E+V.
+This module extends the functionality of edge weighted digraphs to be able to determine the longest paths from a source vertex to all other vertices.
+The implementation of this module is exactly the same as the shortest path acyclic module (sp_acyclic.py) except: 
+    1. the distTo values are initialized to negative infinity instead of positive infinity
+    2. An edge (v->w) is eligible to be relaxed if self._distTo[v] + edge.weight() > self._distTo[w] (switched the signs around)
+    
 
 Assumptions:
 1. Assumes that the edge-weighted digraph is acyclic.
@@ -21,11 +19,11 @@ Takes time proportional to E+V.
         cycle detection (directed_weighted_cycle.py) uses dfs which takes time proprotional to E+V.
         getting the reverse postorder (directed_dfs_orderings_ewd.py) uses dfs which takes time proprotional to E+V.
     Involves a call to relax() for each vertex. At each vertex, relax does the following: (this sums to E+V run time)
-        Add vertex to the tree (which in my case is a simple print('The shortest path has been determined for vertex v') statement), (this is done V*1 = V total times) 
+        Add vertex to the tree (which in my case is a simple print('The longest path has been determined for vertex v') statement), (this is done V*1 = V total times) 
         Iterate through adjacency list and do a series of constant time operations (this is done V*(num_neighbors(V)*1) = E total time)
         
         
-Part of understanding this requires understanding that once a vertex is called from the topological sort, its shortest path has already been determined (this is where the add vertex to the tree operation comes in -> in my case its just a print() statement).
+Part of understanding this requires understanding that once a vertex is called from the topological sort, its longest path has already been determined (this is where the add vertex to the tree operation comes in -> in my case its just a print() statement).
 
 This can be understood by example by looking at the possible paths from Vertex 5 to Vertex 4. 
 1. distTo[5] = 0+  Edge(5->4)
@@ -35,15 +33,15 @@ There are no other possible paths. Look at the graph and see for yourself.
 
 By the time that we pull 4 out of the topological sort we have already looked at all of its dependencies:
 1. The Edge(5->4) was eligible and was relaxed.
-2. Later on, edge Edge(6->4) was deemed ineligible (b/c 0 + Edge(5->1) + Edge(1->3) + Edge(3->6) + Edge(6->4) was NOT less than 0+  Edge(5->4))
+2. Later on, edge Edge(6->4) was deemed eligible and relaxed (and distTo[4] is updated to this larger value): (b/c 0 + Edge(5->1) + Edge(1->3) + Edge(3->6) + Edge(6->4) was greater than than 0+  Edge(5->4))
 
-Therefor, by the time we pull 4 out of the topological_sort_stack, we have examined all of the possible paths and have determined the shortest path. 
+Therefor, by the time we pull 4 out of the topological_sort_stack, we have examined all of the possible paths and have determined the longest path. 
 
 This is b/c we use topological sort as a methodology for choosing the order of vertices to relax by starting at the vertcies in the order of precedence/prerequisite. By the time we pull a vertex off topological_sort, we have examined the distance of the path to it from all of its dependencies!
 
 
 Example:
-python sp_acyclic.py tinyEWDAG.txt ' ' 5
+python lp_acyclic.py tinyEWDAG.txt ' ' 5
 
 """
 
@@ -56,9 +54,9 @@ from algorithms_python.chapter_4.edge_weighted_digraphs.edge_weighted_digraph im
 from algorithms_python.chapter_4.edge_weighted_digraphs.topological_ewd import Topological
 
 
-class Shortest_Paths:
+class Longest_Paths:
     def __init__(self, ewdg, s):
-        self._distTo = [float('inf') for i in range(ewdg.V())]
+        self._distTo = [float('-inf') for i in range(ewdg.V())]
         self._distTo[s] = 0
         
         self.edgeTo = [None]*ewdg.V()
@@ -75,14 +73,14 @@ class Shortest_Paths:
     
     # vertex or edge relaxation
     def relax(self, ewdg, v):
-        print('The shortest path to vertex ', v, 'has been permanently determined.')
+        print('The longest path to vertex ', v, 'has been permanently determined.')
         print("from vertex: ",v)
         for edge in ewdg.adjacent(v):
             print('Edge: ', edge)
             v = edge.from_vert()
             w = edge.towards_vert()
             
-            if self._distTo[v] + edge.weight() < self._distTo[w]:
+            if self._distTo[v] + edge.weight() > self._distTo[w]:
                 print('This edge is eligible and will be relaxed')
                 self.edgeTo[w] = edge
                 
@@ -122,13 +120,13 @@ def main():
     
     ewdg = Edge_Weighted_Digraph(filename=sys.argv[1], delimiter=sys.argv[2])
     source_vertex = int(sys.argv[3])
-    sp = Shortest_Paths(ewdg, source_vertex)
+    lp = Longest_Paths(ewdg, source_vertex)
     
     
     for i in range(ewdg.V()):
         print("Shortest path from ", source_vertex, " to ", i, ":")
-        print(sp.pathTo(i))
-        print("Total cost:", sp.distTo(i))
+        print(lp.pathTo(i))
+        print("Total cost:", lp.distTo(i))
         print("\n\n")
 
         
