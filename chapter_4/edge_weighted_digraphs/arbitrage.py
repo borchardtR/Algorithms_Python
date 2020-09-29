@@ -7,7 +7,7 @@ This algorithm uses an edge_weighted_digraph and a negative cycle detection (in 
 It doesn't guarantee to find the best arbitrage opportunity, just a arbitrage opportunity that is profitable.
 
 To find the best arbitrage opportunity, could implement an algorithm that takes ln() of each exchange rate and DOESN'T negate it as the edge weights in an edge weighted digraph.
-    Would then be reduced to a longest paths problem. 
+    Would then be reduced to a longest cycle path problem. 
 
 # Example:
 # python arbitrage.py rates.txt ' '
