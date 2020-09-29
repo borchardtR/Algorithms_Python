@@ -4,7 +4,9 @@ Author: Ryan Borchardt
 
 Implementation of API on page 645 as well as the API listed on page 677.
 
-Tests for negative cycles reachable from s.
+Assumes there are no negative cycles reachable from s.
+    If there are, the program will still run -> it will return the negative cycle instead of the shortest paths from s.
+
 
 Takes space proportional to V.
 
