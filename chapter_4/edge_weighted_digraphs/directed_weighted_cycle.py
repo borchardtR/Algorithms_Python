@@ -72,7 +72,6 @@ class Directed_Weighted_Cycle:
                 while x.from_vert() != directed_edge.towards_vert():
                     self.cycle_stack.push(x)
                     x = self.edgeTo[x.from_vert()]
-                    print(x)
                 self.cycle_stack.push(x)
         
         self.onStack[v] = False

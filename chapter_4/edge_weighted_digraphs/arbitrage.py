@@ -1,12 +1,16 @@
 """
 Title: arbitrage.py
 Author: Ryan Borchardt
-    
 
+This algorithm uses an edge_weighted_digraph and a negative cycle detection (in this case shortest path Bellman Ford) algorithm to identify arbitrage opporunties from a table of currencies and their exchange rates.    
+
+It doesn't guarantee to find the best arbitrage opportunity, just a arbitrage opportunity that is profitable.
+
+To find the best arbitrage opportunity, could implement an algorithm that takes ln() of each exchange rate and DOESN'T negate it as the edge weights in an edge weighted digraph.
+    Would then be reduced to a longest paths problem. 
 
 # Example:
 # python arbitrage.py rates.txt ' '
-#
 """
 
 import sys
@@ -26,42 +30,37 @@ def build_ewdag(filename, delimter):
     
     ewdag = Edge_Weighted_Digraph(num_verts)
     
-    
+    name_list = []
     
     for i in range(num_verts):
         list_string = file_object.readline().strip().split()
         print(list_string)
+        name_list.append(list_string[0])
         for j in range(1,num_verts+1):
             if i != (j-1):
                 edge_weight = math.log(float(list_string[j]))*-1
                 directed_edge = Directed_Edge(v=i, w=j-1, weight=edge_weight)
                 ewdag.addEdge(directed_edge)
-    return ewdag
+    return (ewdag, name_list)
     
-def find_negative_cycle(ewdag):
+def find_negative_cycle(ewdag, name_list):
     stake = 1000
     sp = Shortest_Paths(ewdag,0)
     if sp.hasNegativeCycle() == True:
         print('Arbitrage opporunity identified:')
-        neg_cycle_stack = sp.negativeCycle()
-        while neg_cycle_stack.isEmpty()+=False:
-            vertex_from = neg_cycle_stack.pop()
-            vertex_to = neg_cycle_stack.pop()
-            for edge in ewdag.adjacent(vertex_from):
-                if edge.towards_vert() == vertex_to:
-                  
-                conversion = math.exp((edge.weight()*-1))
-                new_amount = conversion*stake
-                print(stake, edge.from_vert(), ' to ', new_amount, edge.towards_vert())
-                stake = new_amount
-            
+        neg_cycle = sp.negativeCycle()
+        for edge in neg_cycle:
+            conversion = math.exp((edge.weight()*-1))
+            new_amount = conversion*stake
+            print(stake, name_list[edge.from_vert()], ' to ', new_amount, name_list[edge.towards_vert()])
+            stake = new_amount
     else:
         print('No arbitrage opporunity identified:')
     
         
 def main():
-    ewdag = build_ewdag(sys.argv[1], sys.argv[2])
-    find_negative_cycle(ewdag)
+    ewdag, name_list = build_ewdag(sys.argv[1], sys.argv[2])
+    find_negative_cycle(ewdag, name_list)
     
     
 
