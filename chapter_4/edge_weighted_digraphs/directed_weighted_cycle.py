@@ -27,7 +27,7 @@ class Directed_Weighted_Cycle:
         
         # This array is used to build the cycle_stack
         # For a given index
-        self.paths_array = [None]*self.ew_digraph.V()
+        self.edgeTo = [None]*self.ew_digraph.V()
         
         # This stack stays empty until a cycle is detected.
         # If a cycle is detected, all of the vertices along the cycle are added to the stack
@@ -61,18 +61,19 @@ class Directed_Weighted_Cycle:
             # If a vertex has already been encountered, then we don't need to re-search through its neighbors.
             # We only search through the neighbors of a vertex once.
             elif self.marked_array[w] == False:
-                self.paths_array[w] = v
+                self.edgeTo[w] = directed_edge
                 self.dfs(w)
             
             # 3.
             # If this is a true, a cycle has been detected and we can build the cycle stack to show the cycle.
             elif self.onStack[w] == True:
-                self.cycle_stack.push(w)
-                x = v
-                while x != w:
+                self.cycle_stack.push(directed_edge)
+                x = self.edgeTo[v]
+                while x.from_vert() != directed_edge.towards_vert():
                     self.cycle_stack.push(x)
-                    x = self.paths_array[x]
-                self.cycle_stack.push(w)
+                    x = self.edgeTo[x.from_vert()]
+                    print(x)
+                self.cycle_stack.push(x)
         
         self.onStack[v] = False
     
