@@ -67,8 +67,6 @@ class Directed_Weighted_Cycle:
             # 3.
             # If this is a true, a cycle has been detected and we can build the cycle stack to show the cycle.
             elif self.onStack[w] == True:
-                print(w)
-                print(v)
                 self.cycle_stack.push(w)
                 x = v
                 while x != w:
