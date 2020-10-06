@@ -5,10 +5,9 @@
 
 # The test client takes in a file of strings from standard input and sorts in alphabetical order.
 
-# The sort (merge sort) function has an order of growth of linearithmic time (N*lg(N)). 
-    # Best case (input is already sorted): 
-    # Worst case (input is sorted in reverse order): 
-    # Random case (input is in a random order): 
+# The sort (merge sort) function has an order of growth of linearithmic time (N*lg(N)) for all cases.
+
+# Merge sort has a space complexity of O(n) additonal space required.
 
 # Example:
 # python merge_sort.py < tiny16.txt

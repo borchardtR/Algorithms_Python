@@ -5,7 +5,7 @@
 
 # I implemented this in a unique way that makes intuitive sense to me. There is a substantial amount of code that is to simply help explain what is happening at each step.
 
-# Requires a command line argument to do set the length of the unsorted array.
+# Requires a command line argument to set the length of the unsorted array.
 
 # Example:
 # python shell_sort_explanation.py 100

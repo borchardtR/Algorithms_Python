@@ -29,7 +29,8 @@ My goals for this project are:
 - #### Shell sort<br>
   - [Shell sort basic](chapter_2/shell_sort/shell_sort.py)<br>
   - [Shell sort with detailed explanation](chapter_2/shell_sort/shell_sort_explanation.py)<br>
-- #### [Merge sort](chapter_2/merge_sort/merge_sort.py)<br>
+- #### [Merge sort (recursive)](chapter_2/merge_sort/mergesort_recursive.py)<br>
+- #### [Merge sort (iterative)](chapter_2/merge_sort/mergesort_iterative.py)<br>
 - #### [Quicksort](chapter_2/quicksort/quicksort.py)<br>
 - #### [Heapsort](chapter_2/heapsort/heapsort.py)<br>
 - #### Priority Queue<br>
