@@ -20,6 +20,8 @@ My goals for this project are:
   - [Union Quick Find](chapter_1/union_find/uf_quickfind.py)<br>  
   - [Union Quick Union](chapter_1/union_find/uf_quickunion.py)<br>
   - [Union Weighted Quick Union](chapter_1/union_find/uf_weightedquickunion.py)<br>  
+  - [Union Weighted Quick Union with path compression](chapter_1/union_find/uf_weightedquickunion_pathcompression.py)<br>
+
   
 ### Chapter 2
 - #### [Selection sort](chapter_2/selection_sort/selection_sort.py)<br>
@@ -99,3 +101,7 @@ My goals for this project are:
 
   ### Chapter 5
   - [Tries](chapter_5/tries.py)<br>
+  - [Ternary search tries (TST)](chapter_5/tst.py)<br>
+  - [Knuth Morris Pratt substring search](chapter_5/kmp.py)<br>
+  - [Boyer Moore substring search](chapter_5/bm.py)<br>  
+  - [Rabin Karp substring search](chapter_5/rk.py)<br>   

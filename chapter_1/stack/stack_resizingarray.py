@@ -32,20 +32,11 @@
 # A sequence is an iterable object that has an index from 0 to n-1. Lists, tuples, ranges are sequences. Dictionaries, sets etc are not. Dictionaries and sets are still iterables, however b/c they contain an iter() method that returns an iterator object. The iterator object contains a next method that returns each item in the iterable object. 
 
 
-# I decided to make Stack_ResizingArray iterable
-
-# Sources
-# 1. Pages 661-662 of Sedgewick's Python
-# 2. Pages 138-139 of Sedgewick's Algorithms
-# 3. https://www.novixys.com/blog/nested-inner-classes-python/ 
-# 4. https://treyhunner.com/2016/12/python-iterator-protocol-how-for-loops-work/ 
-# 5. https://towardsdatascience.com/python-basics-iteration-and-looping-6ca63b30835c 
-# 6. https://realpython.com/python-for-loop/
-
-
 # When you use a for loop, what is happening under the hood is: the iter() method is called on the iterable object in the 'for item in iterable_object' statement
 # The iter() method returns an iterator object. This iterator object is used to iterate through each of the items in the iterable object. It contains the next() method, which returns an item.
 # The next() method is called repeatedly on the iterator object until the raise StopIteration occurs. At this point, the for loop has finished.
+
+# You can represent a stack in python by utilizing a python list or a python deque object (push()=append(), pop=pop())
 
 
 # Example 1:

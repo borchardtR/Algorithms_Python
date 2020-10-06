@@ -1,13 +1,22 @@
-# Title: queue_linkedlist.py
-# Author: Ryan Borchardt
+"""
+Title: queue_linkedlist.py
+Author: Ryan Borchardt
 
-# I am implementing the queue data structure using an implementation of linked lists.
-# For this implementation: push() inserts node to end of linked list and pop() removes first node from linked list. 
-# Requires additional instance variable to reference the last node in linked list to avoid having to traverse linked list
-# I made the queue iterable.
+Implemented using linked lists.
+For this implementation: push() inserts node to end of linked list and pop() removes first node from linked list. 
+Requires additional instance variable to reference the last node in linked list to avoid having to traverse linked list
+I made the queue iterable.
 
-# Example:
-# python queue_linkedlist.py < tobe.txt
+Note that the Python has a built in data type that can be used to represent queues with the deque class (a doubly linked list).
+traditional queue | deque object
+---------------------------------
+size()            | count()
+enqueue()         | appendleft()
+dequeue()         | pop()
+
+Example:
+python queue_linkedlist.py < tobe.txt
+"""
 
 import sys
 

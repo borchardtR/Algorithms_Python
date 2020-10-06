@@ -3,7 +3,6 @@
 
 # This is a more advanced version of resizingarraystack.py. In this implementation, I am starting with using a fixed array (a numpy array in this case) rather than a resizing array (Python list). 
 # I am including the functionality to specify the data type of the numpy array.
-# I will be including functionality to make the fixed-size array into a resizing-array.
 # I am also including the functionality to make stack_fixedtoresizingarray iterable.
 
 # Example 1:

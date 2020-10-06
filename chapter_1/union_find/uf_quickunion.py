@@ -4,6 +4,25 @@
 
 # QuickUnion 
 
+# The Union Find data structure (also called a disjoint-set forest data structure) allows for storing a collection of disjoint sets of sites.
+    # It can be used to efficently answer dynamic connectivity questions like:
+        # Is site p connected to site q? If not, merge their sets together. Can be done for a stream of pairs site p and site q.
+    # It can answer questions like: is site p connected to site q (ie are site p and site q part of the same set)?
+    # Connect p and q (ie merge the their sets together?).
+    # What component is site p part of (ie what set is site p part of)? What component is site q part of (ie what set is site q part of)?
+    
+# The union find data strucure is also used in Kruskal's algorithm for finding the minimum spanning tree of edge-weighted graphs (see Chapter 4.3)
+
+# The test client takes in n pairs of integers.
+    # For each pair of integer it establishes a connection between each pair.
+
+# 's' is the number of sites
+# 'c' is the number of "connections established" (ie the number of integer pairs in tinyUF.txt / mediumUF.txt)
+    # Each of the "connections established" operations corresponds to:
+        # 1. Determining if site p and site q are part of the same set (same component)
+        # 2. If site p and site q are part of disjoint sets (different components), merge their sets (combine components). 
+
+
 # The constructor involves s append() operations. append() is constant amortized time, so the order of growth of the constructor is s (linear)
 # The method count() takes constant time.
 # The method find() depends on the input. 
@@ -14,16 +33,16 @@
 
 # The test client main(): 
     # takes in the number of sites from random input (1, constant)
-    # Runs the constructor for UF_basic (s, linear)
+    # Runs the constructor for UF_quickunion (s, linear)
     # Runs the Union method() c times (beween c*1 and c*s so between linear time and quadratic time)
     # Runs the count() method (1, constant)
-    # Runs the connected method twice (between constant and linear time).
+    # Runs the connected method twice (between constant (1) and linear time (s)).
     
     # Overall, the test client for quick union has an order of growth between linear and quadratic, depending on the input.
 
-    # tinyUF.txt has 10 sites (s=10) w/ 11 connections (c=11).
-    # mediumUF.txt has 625 sites (s=625) w/ 900 connections (c=900)
-    # largeUF.txt has 1 million sites (s=1 mil) w/ 2 million connections (c=2 mil)    
+    # tinyUF.txt has 10 sites (s=10) w/ 11 "connections established" operations (c=11).
+    # mediumUF.txt has 625 sites (s=625) w/ 900 "connections established" operations (c=900)
+    # largeUF.txt has 1 million sites (s=1 mil) w/ 2 million "connections established" operations (c=2 mil)    
     
     # This means that quick union in the best case performs markedly better than quickfind (order of growths c vs s*c) but in the worst case performs similarly (order of growths s*c vs s*c).
     # Therfore, quick union performing better than quick find is not guaranteed.

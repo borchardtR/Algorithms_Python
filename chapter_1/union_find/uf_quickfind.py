@@ -1,6 +1,24 @@
 # Title: uf_quickfind.py
 # Author: Ryan Borchardt
 
+# The Union Find data structure (also called a disjoint-set forest data structure) allows for storing a collection of disjoint sets of sites.
+    # It can be used to efficently answer dynamic connectivity questions like:
+        # Is site p connected to site q? If not, merge their sets together. Can be done for a stream of pairs site p and site q.
+    # It can answer questions like: is site p connected to site q (ie are site p and site q part of the same set)?
+    # Connect p and q (ie merge the their sets together?).
+    # What component is site p part of (ie what set is site p part of)? What component is site q part of (ie what set is site q part of)?
+    
+# The union find data strucure is also used in Kruskal's algorithm for finding the minimum spanning tree of edge-weighted graphs (see Chapter 4.3)
+
+# The test client takes in n pairs of integers.
+    # For each pair of integer it establishes a connection between each pair.
+
+# 's' is the number of sites
+# 'c' is the number of "connections established" (ie the number of integer pairs in tinyUF.txt / mediumUF.txt)
+    # Each of the "connections established" operations corresponds to:
+        # 1. Determining if site p and site q are part of the same set (same component)
+        # 2. If site p and site q are part of disjoint sets (different components), merge their sets (combine components). 
+
 # The constructor involves s append() operations. append() is constant amortized time, so the order of growth of the constructor is s (linear).
 # The union() method has a linear order of growth (s). 
 # The find() method has a constant order of growth (1).
@@ -9,8 +27,8 @@
 
 # The test client main(): 
     # takes in the number of sites from random input (1, constant)
-    # Runs the constructor for UF_basic (s, linear)
-    # Runs the Union method() c times (s*c, quadratic)
+    # Runs the constructor for UF_quickfind (s, linear)
+    # Runs the Union method() c times (c*s, quadratic)
     # Runs the count() method (1, constant)
     # Runs the connected method twice (1, constant).
     
