@@ -14,10 +14,15 @@
 # results in:
 # ['I', 'X', 'Q', 'L', 'O', 'S', 'C', 'T', 'R', 'A', 'E', 'U', 'M', 'P', 'E', 'K']
 
-# The sort (quick sort) function has an order of growth of 
-    # Best case (input is already sorted): 
-    # Worst case (input is sorted in reverse order): 
-    # Random case (input is in a random order): 
+# Time complexity is ~ N*lg(N) in both the best and average-case.
+# Space complexity is ~lg(N) in both the best and average-case (the call stack has a max of ~lg(N) frames on it at a time, each with constant space).
+
+# Time complexity is ~N^2 in the worst-case (this is incredibly rare as we randomly shuffle the array beforehand so getting an array that is in reverse-order is very, very unlikely).
+# Space complexity is ~N in the worst-case (the call stack has a max of ~N frames on it at a time, each with constant space)
+
+# Note that Python has a built-in sorted() function and a List.sort() method.
+    # Both utilize the timsort algorithm, which is a hybrid of the mergesort and insertion sort algorithms.
+
     
 # Example:
 # python quicksort.py < quicksort_text.txt
@@ -68,20 +73,6 @@ def _partition(a,lo,hi):
     print('\n')
     # Return the final index position of the partitioning element
     return j
-        
-        
-    #Decrement j until a[j] is not greater than the partitioning element
-    
-    # Need to swap a[i] and a[j] b/c they are each on the wrong side of the final index position of the partitioning element. Note that we are closing in on the final index position of the partitioning element as i and j get closer. (once i and j have crossed, we know the final index position of the partitioning element is j)
-    # This operation supports the goal of rearranging a such that all of the elements to the left of the final index position of the partitioning element are less than the partitioning element and all of the elements to the right of the 
-    exch(a,i,j)
-    
-    # When the pointers have crossed, this is a signal that we have found the final index position of the partitioning element such that all of the elements to the left of it are less than the partitioning element and all of the elements to the right of it are greater than the partitioning element
-    # Need to swape the partitioning element with a[j] b/c note how it results in all the elements to the left of the partitioning element being less than the partitioning element and all of the elements to the right of the partitioning element being greater than the partitioning element.
-    exch(a,lo,j)
-    
-    return j
-
             
 
 

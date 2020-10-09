@@ -122,7 +122,11 @@ class ST_HashTable_SeparateChaining:
             self.current_node = self.current_node.next
             return returned_node   
     
-
+    def __getitem__(self, key):
+        return self.get(key)
+        
+    def __setitem__(self, key, value):
+        return self.put(key, value)
 
 def main():
     

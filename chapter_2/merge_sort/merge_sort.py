@@ -7,7 +7,7 @@
 
 # The sort (merge sort) function has an order of growth of linearithmic time (N*lg(N)) for all cases.
 
-# Merge sort has a space complexity of O(n) additonal space required.
+# Merge sort has a space complexity of O(n) additonal space required (the auxillary array has a length of N). Also takes an additional lg(N) space (max # of frames on the call stack is lg(N), each of constant space)
 
 # Example:
 # python merge_sort.py < tiny16.txt

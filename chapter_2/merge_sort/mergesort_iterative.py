@@ -8,6 +8,12 @@
 
 # The only difference is the order in which the subarrays are sorted.
 
+# Time complexity is ~ N*lg(N) in all cases.
+# Space complexity is ~N in all cases. 
+    # the auxillary array has a length of N. 
+    # Also takes an additional lg(N) space (max # of frames on the call stack is lg(N), each of constant space)
+    # ~N + lg(N) = ~N
+
 # python mergesort_iterative.py < len_6.txt      
     
 import sys
