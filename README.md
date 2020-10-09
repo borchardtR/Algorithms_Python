@@ -101,7 +101,8 @@ My goals for this project are:
   
 
   ### Chapter 5
-  - [Tries](chapter_5/tries.py)<br>
+  - [256-Way Trie](chapter_5/256way_trie.py)<br>
+  - [R-Way Trie](chapter_5/rway_trie.py)<br>
   - [Ternary search tries (TST)](chapter_5/tst.py)<br>
   - [Knuth Morris Pratt substring search](chapter_5/kmp.py)<br>
   - [Boyer Moore substring search](chapter_5/bm.py)<br>  
