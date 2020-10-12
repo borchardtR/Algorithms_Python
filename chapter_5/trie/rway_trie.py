@@ -1,19 +1,33 @@
-# Title: 256way_trie.py
+# Title: rway_trie.py
 # Author: Ryan Borchardt
 
-# This is a specific implementation of an R-way trie. My particular implementation is restricted to being a 256-way trie b/c I rely on the built-in Python ASCII functions ord() and chr() 
-# See rway_trie.py for my own implementation of a true R-way tree. 
-
-
+# This is an implementation of an R-way trie.
+# Works for any custom alphabet.
+# Takes in the alphabet array as argument.
+# Implements toChar() and toIndex methods in place of Python's built-in chr() and ord() methods for a 256-way trie. 
+# Requires the additional instance variables: self.alphabet and self.inverted_alphabet to support the toChar() and toIndex() operations. 
 # Implements the API on page 730.
 
+# I created the lowercase_alphabet.txt which contains the lowercase alphabet a-z, separated by the delimter ' ' to serve as an example alphabet input. 
+
+# Time complexities:
+# Search hit time complexity: ~length(key) (in all cases) 
+# Insert time complexity: ~length(key) (in all cases)
+# Search miss time complexity: ~0 (in the best case), ~length(key) (in the worst-case), and ~log(N,R) in the average case (where N is the # of keys and R is the length of the alphabet).
+
+# Space complexities:
+# R*N in the best-case (almost complete overlap of keys over nodes)
+# R*N*w in the worst-case (almost not overlap of keys over nodes) where w is average key length.
+
+
 # Example:
-# python 256way_trie.py seashore.txt ' '
+# python rway_trie.py seashore.txt ' ' lowercase_alphabet.txt
 
 
 import sys
 sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
 from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
+from algorithms_python.chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
 
 class Node:
     def __init__(self, R):
@@ -21,11 +35,27 @@ class Node:
         self.value = None
         
 class Trie:
-    def __init__(self):
-        self.R = 256
+    def __init__(self, alphabet):
+        self.R = len(alphabet)
+        self.alphabet = alphabet
+        self.inverted_alphabet = ST_HashTable_SeparateChaining()
+        
+        count=0
+        for i in self.alphabet:
+            self.inverted_alphabet[i] = count
+            count +=1
+        
+        
         self.root = None
         self.root_size = 0
-       
+    
+    def toChar(self, index):
+        return self.alphabet[index]
+    
+    def toIndex(self, char):
+        return self.inverted_alphabet[char]
+
+    
     def put(self, key, value):
         self.root = self._put(self.root, 0, key, value)
         
@@ -39,7 +69,7 @@ class Trie:
                 self.root_size += 1
             current_node.value = value
             return current_node
-        index = ord(key[d])
+        index = self.toIndex(key[d])
         d+= 1
         current_node.links[index] = self._put(current_node.links[index],d,key,value)
         #if final node didn't already have a value:
@@ -58,7 +88,7 @@ class Trie:
             return None
         if d == len(key):
             return current_node
-        index = ord(key[d])
+        index = self.toIndex(key[d])
         d += 1
         return self._get(current_node.links[index], d, key)
         
@@ -91,7 +121,7 @@ class Trie:
             queue.enqueue(pre)
             
         for i in range(0,len(node.links)):
-            char = chr(i)
+            char = self.toChar(i)
             self.collect(node.links[i], pre+char, queue)
     
     # wildcard matching
@@ -114,8 +144,8 @@ class Trie:
         for i in range(len(node.links)):
             # if char is the wildcard character, search every reference in links (b/c any character is valid for the wildcard character)
             # or if char is a letter, search that link
-            if char=='.' or ord(char)==i:
-                self.wildcard_collect(node.links[i], pre=pre+chr(i), pat=pat, queue=queue)
+            if char=='.' or self.toIndex(char)==i:
+                self.wildcard_collect(node.links[i], pre=pre+self.toChar(i), pat=pat, queue=queue)
     
     def longestPrefixOf(self, string):
         length =  self.search(self.root, string, 0, 0)
@@ -136,7 +166,7 @@ class Trie:
             
         char = s[d]
         
-        node = node.links[ord(char)]
+        node = node.links[self.toIndex(char)]
         d += 1
         
         return self.search(node, s, d, length)
@@ -156,7 +186,7 @@ class Trie:
             return 
             
         char = key[d]
-        next_node = node.links[ord(char)]
+        next_node = node.links[self.toIndex(char)]
         d += 1
         
         self._delete(next_node, key, d)
@@ -168,15 +198,21 @@ class Trie:
                 return
         
         # If no downstream keys, delete reference to node:
-        node.links[ord(char)] = None
+        node.links[self.toIndex(char)] = None
         self.root_size -= 1
     
 def main():
     
-    trie = Trie()
+    file_object = open(sys.argv[3], 'r')
+    alphabet_string = file_object.readline()
+    alphabet_list = alphabet_string.split(' ')
+    file_object.close()
+    
+    trie = Trie(alphabet_list)
     
     file_object = open(sys.argv[1], 'r')
     output_list = file_object.readlines()
+    file_object.close()
     word_count =0
     
     for line in output_list:
