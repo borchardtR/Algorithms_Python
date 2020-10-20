@@ -1,13 +1,27 @@
 # Title: dfs_iterative.py
 # Author: Ryan Borchardt
 
-# This is the iterative version of dfs.py
-# I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
+"""
+This is the iterative version of dfs.py
+I did this to explicitly show the usage of a stack to implement dfs (the recursive version uses the call stack).
 
-# This class extends the functionality of undirected graphs to be able to:
-# 1. Determine if a path exists from a vertex to another vertex.
-# 2. Determine the number of vertices a vertex is connected to.
+This class extends the functionality of undirected graphs to be able to:
+1. Determine if a path exists from a vertex to another vertex.
+2. Determine the number of vertices a vertex is connected to.
 
+
+Time complexity: Proportional to V + E
+    1. the statement: "self.marked_array[v] = True" is executed V times.
+    2. the block: v = stack.pop() and 'if self.marked_array[v] == True' is excecuted/evaluated between V and 2V times (when every vertex is adjacent to every other vertex)
+        this part of the code is unique for the iterative version of dfs b/c vertices can be marked true while they are still on the stack
+    2. the clause: 'if self.marked_array[neighbor] != True is evaluated 2*E times.
+    
+    V + 2V + 2E is proportional to V + E.
+    
+Space complexity: Propotional to V 
+
+
+"""
 # Example:
 # python dfs_iterative.py tinyCG.txt ' ' 0 2 5
 

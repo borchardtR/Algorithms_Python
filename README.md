@@ -106,7 +106,9 @@ My goals for this project are:
   - [R-Way Trie](chapter_5/trie/rway_trie.py)<br>
   - [Ternary search tries (TST)](chapter_5/trie/tst.py)<br>
 - #### Substring Search<br>
-  - [Brute force with backtracking substring search](chapter_5/substring_search/bruteforce_backtracking.py <br>
-  - [Knuth Morris Pratt substring search](chapter_5/substring_search/kmp.py)<br>
-  - [Boyer Moore substring search](chapter_5/substring_search/bm.py)<br>  
-  - [Rabin Karp substring search](chapter_5/substring_search/rk.py)<br>   
+  - [Brute force with backtracking substring search](chapter_5/substring_search/bruteforce_backtracking.py)<br>
+  - [Knuth-Morris-Pratt substring search](chapter_5/substring_search/kmp.py)<br>
+  
+  - Upcoming:<br>
+  - [Boyer-Moore substring search](chapter_5/substring_search/bm.py)<br>  
+  - [Rabin-Karp substring search](chapter_5/substring_search/rk.py)<br>   
