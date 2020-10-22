@@ -6,6 +6,10 @@
 # This class extends the functionality of undirected graphs to be able to:
 # 1. Determine if a graph is biparite.
 
+# Note that:
+# 1. If the graph is acyclic, it is automatically/guaranteed biparite / two-colorable.
+# 2. If the graph has a cycle, it can still be biparite / two-colorable (if the cycles it contains have an even number of nodes, it can be biparite / two-colorable).
+
 # Example:
 # python biparite.py tinyG.txt ' '
 #

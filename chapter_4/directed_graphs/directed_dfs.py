@@ -18,19 +18,18 @@ from algorithms_python.chapter_4.directed_graphs.digraph import Digraph
 
 class Directed_DFS:
     def __init__(self, digraph, *args):
-        self.digraph = digraph
-        self.marked_array = [False]*self.digraph.V()
+        self.marked_array = [False]*digraph.V()
         
         for s in args:
             self.marked_array[s] = True
-            self.dfs(s)
+            self.dfs(s,digraph)
         
-    def dfs(self,v):
+    def dfs(self,v,digraph):
     
-        for points_towards in self.digraph.adjacent(v):
+        for points_towards in digraph.adjacent(v):
             if self.marked_array[points_towards] == False:
                 self.marked_array[points_towards] = True
-                self.dfs(points_towards)
+                self.dfs(points_towards,digraph)
         
     
     

@@ -8,6 +8,8 @@
 # 2. Determine which component a vertex is part of.
 # 3. Determine the number of components in the graph.
 
+# Time complexity: Proportional to V + E 
+# Space complexity: Proportional to V
 
 # Example:
 # python connected_components_bfs.py tinyG.txt ' '

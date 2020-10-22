@@ -7,6 +7,10 @@
 # 1. Determine if a path exists from a vertex to another vertex (using the same dfs algorithm as in dfs_recursive.py and dfs_iterative.py).
 # 2. Determine a path between two connected vertices.  
 
+# Time complexity: Proportional to V + E (see explanation in dfs_iterative.py)
+# Space complexity: Proportional to V
+
+# the pathTo() method takes time proportional to the # of vertices on its path, which is a max of V.
 
 # Example:
 # python paths_dfs_iterative.py tinyCG.txt ' ' 0

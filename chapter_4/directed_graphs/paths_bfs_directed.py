@@ -20,20 +20,19 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class Paths_BFS_Directed:
     def __init__(self, digraph, s):
-        self.digraph = digraph
-        self.marked_array = [False]*self.digraph.V()
-        self.paths_array = [None]*self.digraph.V()
+        self.marked_array = [False]*digraph.V()
+        self.paths_array = [None]*digraph.V()
         self.s = s
         
         self.marked_array[self.s] = True
-        self.bfs(self.s)
+        self.bfs(self.s, digraph)
         
-    def bfs(self,v): 
+    def bfs(self,v, digraph): 
         queue = Queue_LinkedList()
         queue.enqueue(v)
         while queue.isEmpty()==False:
             v = queue.dequeue()
-            for points_towards in self.digraph.adjacent(v):
+            for points_towards in digraph.adjacent(v):
                 if self.marked_array[points_towards] == False:
                     self.marked_array[points_towards] = True
                     self.paths_array[points_towards] = v
@@ -47,11 +46,10 @@ class Paths_BFS_Directed:
     def pathTo(self,v):
         if self.hasPathTo(v) == False: return None
         stack = Stack_ResizingArray()
-        x = v
-        while x != self.s:
-            stack.push(x)
-            x = self.paths_array[x]
-        stack.push(self.s)
+        
+        while v != None:
+            stack.push(v)
+            v = self.paths_array[v]
         return stack
         
         

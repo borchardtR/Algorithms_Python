@@ -20,14 +20,13 @@ from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_Resizing
 
 class Directed_Cycle:
     def __init__(self, digraph):
-        self.digraph = digraph
         # This is used to keep track of whether a vertex has been encountered or not.
         # This way dfs() will only run at most once for each vertex
-        self.marked_array = [False]*self.digraph.V()
+        self.marked_array = [False]*digraph.V()
         
         # This array is used to build the cycle_stack
         # For a given index
-        self.paths_array = [None]*self.digraph.V()
+        self.paths_array = [None]*digraph.V()
         
         # This stack stays empty until a cycle is detected.
         # If a cycle is detected, all of the vertices along the cycle are added to the stack
@@ -37,17 +36,17 @@ class Directed_Cycle:
         # This array keeps track of whether a vertex is still on the call stack.
         # If we encounter a vertex that is still on the call stack, then we know a cycle exists (similar to how if the end of the string re-encounters the string in the Tremaux maze)
         # The value at a given index is turned to True while it is on the call stack and turned to False when dfs finishes (and it is no longer on the call stack)
-        self.onStack = [False]*self.digraph.V()
+        self.onStack = [False]*digraph.V()
         
-        for i in range(self.digraph.V()):
+        for i in range(digraph.V()):
             # This way dfs goes through all vertices even if in different components.
             if self.marked_array[i] != True:
-                self.dfs(i)
+                self.dfs(i, digraph)
         
-    def dfs(self,v):
+    def dfs(self,v, digraph):
         self.onStack[v] = True
         self.marked_array[v] = True
-        for vertex in self.digraph.adjacent(v):
+        for vertex in digraph.adjacent(v):
             # 1.
             # If a cycle has already been detected (and consequently cycle_stack has been built),
             # Then no more calls to dfs() will be added to the call stack and those remaining are quickly finished w/ this return statement.
@@ -58,7 +57,7 @@ class Directed_Cycle:
             # We only search through the neighbors of a vertex once.
             elif self.marked_array[vertex] == False:
                 self.paths_array[vertex] = v
-                self.dfs(vertex)
+                self.dfs(vertex, digraph)
             
             # 3.
             # If this is a true, a cycle has been detected and we can build the cycle stack to show the cycle.

@@ -4,7 +4,7 @@
 # sorts the vertices of the directed graph in the following orders:
 
 # 1. Preorder: The order of the dfs() calls
-# 2. Postorder: The order in which the vertices are done.
+# 2. Postorder: The order in which the dfs() calls finish.
 # 3. Reverse postorder: This is the topological order of the digraph (order that allows for all directed edges to point from a vertex already earlier in the order).
 
 # Example:
@@ -21,24 +21,23 @@ from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class Directed_DFS_Orderings:
     def __init__(self, digraph):
-        self.digraph = digraph
-        self.marked_array = [False]*self.digraph.V()
+        self.marked_array = [False]*digraph.V()
         
         self.pre_order = Queue_LinkedList()
         self.post_order = Queue_LinkedList()
         self.reverse_post_order = Stack_ResizingArray()
         
-        for i in range(self.digraph.V()):
+        for i in range(digraph.V()):
             if self.marked_array[i] != True:
-                self.dfs(i)
+                self.dfs(i, digraph)
         
         
-    def dfs(self,v):
+    def dfs(self,v, digraph):
         self.pre_order.enqueue(v)
         self.marked_array[v] = True
-        for j  in self.digraph.adjacent(v):
+        for j  in digraph.adjacent(v):
             if self.marked_array[j] != True:
-                self.dfs(j)
+                self.dfs(j, digraph)
         self.post_order.enqueue(v)
         self.reverse_post_order.push(v)
     

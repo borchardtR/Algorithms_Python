@@ -15,6 +15,17 @@
     # For example, graph.adj(0) in the test client is actually interpreted as applying (0) to the graph.adj instance variable rather than calling the graph.adj() instance method with 0 as an input
     # For clarity, I always make sure that instance variables and instance methods do not share the same name
 
+
+# Constructing the graph:
+    # Time complexity: Proportional to V + E 
+        # 1. Build self.adj which consists of an array of V empty linked lists (time proportional to V)
+        # 2. For each edge, add an integer to a specific linked list, twice (time proportional to 2E)
+    # Space complexity: Proportional to V + E
+        # The self.adj instance variabe is an array of length V. It contains V references to V linked lists.
+        # The average length of the linked lists is equal to the average degree per vertex: 2E / V. So the sum of all of the linked lists take V * 2E /V = E space 
+        # So the overall space taken is V references to V lists and 2E total nodes.
+
+
 # Space required: E + V
 # Time to add edge v-w: 1
 # Time to check whether w is adjacent to v: degree(v)

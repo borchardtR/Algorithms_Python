@@ -8,6 +8,12 @@
 # 2. Determine a path between two connected vertices.  
 
 
+# Time complexity: Proportional to V + E (see explanation in dfs_recursive.py)
+# Space complexity: Proportional to V
+
+# the pathTo() method takes time proportional to the # of vertices on its path, which is a max of V.
+
+
 # Example:
 # python paths_dfs_recursive.py tinyCG.txt ' ' 0
 
@@ -41,10 +47,10 @@ class Paths_dfs:
         if self.hasPathTo(v) == False: return None
         stack = Stack_ResizingArray()
         x = v
-        while x != self.s:
+        while x != None:
             stack.push(x)
             x = self.path_array[x]
-        stack.push(self.s)
+        
         return stack
         
 def main():

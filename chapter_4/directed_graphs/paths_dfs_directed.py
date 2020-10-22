@@ -17,19 +17,19 @@ from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_Resizing
 
 class Paths_DFS_Directed:
     def __init__(self, digraph, s):
-        self.digraph = digraph
-        self.marked_array = [False]*self.digraph.V()
-        self.paths_array = [None]*self.digraph.V()
+        self.marked_array = [False]*digraph.V()
+        self.paths_array = [None]*digraph.V()
         self.s = s
-        self.marked_array[self.s] = True
-        self.dfs(self.s)
         
-    def dfs(self,v): 
-        for points_towards in self.digraph.adjacent(v):
+        self.marked_array[self.s] = True
+        self.dfs(self.s, digraph)
+        
+    def dfs(self,v, digraph): 
+        for points_towards in digraph.adjacent(v):
             if self.marked_array[points_towards] == False:
                 self.marked_array[points_towards] = True
                 self.paths_array[points_towards] = v
-                self.dfs(points_towards)
+                self.dfs(points_towards, digraph)
         
     
     
@@ -39,11 +39,10 @@ class Paths_DFS_Directed:
     def pathTo(self,v):
         if self.hasPathTo(v) == False: return None
         stack = Stack_ResizingArray()
-        x = v
-        while x != self.s:
-            stack.push(x)
-            x = self.paths_array[x]
-        stack.push(self.s)
+
+        while v != None:
+            stack.push(v)
+            v = self.paths_array[v]
         return stack
         
         

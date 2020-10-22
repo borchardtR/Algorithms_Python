@@ -3,6 +3,19 @@
 
 # The implementation for the digraph data structure is very similar to the implementation for the (undirected graph) Graph_Array_AdjacencyLists.
 
+# Constructing the digraph:
+    # Time complexity: Proportional to V + E 
+        # 1. Build self.adj which consists of an array of V empty linked lists (time proportional to V)
+        # 2. For each edge, add an integer to a specific linked list (time proportional to E)
+    # Space complexity: Proportional to V + E
+        # The self.adj instance variabe is an array of length V. It contains V references to V linked lists.
+        # The average length of the linked lists is equal to the average outdegree (# of edges pointing from a vertex) per vertex: E / V. So the sum of all of the linked lists take V * E /V = E space 
+        # So the overall space taken is V references to V lists and E total nodes.
+    
+# Reminder that for a digraph, the average outdegree per vertex = E / V.
+    # For an undirected graph, the average degree per vertex = 2E / V.
+
+
 # Example:
 # python digraph.py tinyDG.txt ' '
 
@@ -67,11 +80,9 @@ class Digraph:
     # Allows client to efficiently find edges pointing TOWARDS a given vertex
     def reverse(self):
         rev_digraph = Digraph(V=self._V)
-        for i in range(len(self.adj)):
-            element_ll = self.adj[i]
-            for node in element_ll:
-                if node != None:
-                    rev_digraph.addEdge(node, i)
+        for from_vert in range(len(self.adj)):
+            for toward_vert in self.adj[from_vert]:
+                rev_digraph.addEdge(toward_vert, from_vert)
         return rev_digraph
     
     def __str__(self):

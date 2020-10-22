@@ -7,6 +7,8 @@
 # 1. Determine if a path exists from a vertex to another vertex.
 # 2. Determine the shortest path between two connected vertices.  
 
+# Time complexity: Proportional to V + E 
+# Space complexity: Proportional to V
 
 # Example:
 # python paths_bfs.py tinyCG.txt ' ' 0

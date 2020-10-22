@@ -24,17 +24,17 @@ class Cycle:
         # For each vertex, determine if there exists a cycle
         for i in range(graph.V()):
             self._marked_array = [False]*graph.V()
-            self._dfs(graph, i)
+            self._dfs(graph, i, i)
         
-    def _dfs(self, graph, v):
+    def _dfs(self, graph, v, calling_vert):
         self._marked_array[v] = True
 
         adjacent_list = graph.adj[v] 
         for neighbor in adjacent_list:
             if self._marked_array[neighbor] != True:
-                self._dfs(graph, neighbor)
-            # If one of the neighbors (that was not the previous vertex which for dfs is always v) has already been marked, then we know there exists a cycle 
-            elif (self._marked_array[neighbor] == True) and (neighbor != v):
+                self._dfs(graph, neighbor, v)
+            # If neighbor has already been marked and it is NOT the calling vertex, we know we have found a cycle in the graph:
+            elif neighbor != calling_vert:
                 self._cycle = True
         
 
