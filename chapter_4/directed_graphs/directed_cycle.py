@@ -7,6 +7,10 @@
 # 1. Determine if a cycle exists in the digraph.
 # 2. If a cycle exists, list a cycle (just one) in the digraph.
 
+# Time complexity: Proportional to V + E
+# Space complexity: Proportional to V 
+
+
 # Example:
 # python directed_cycle.py tinyDG.txt ' '
 # python directed_cycle.py tinyDAG.txt ' ' 

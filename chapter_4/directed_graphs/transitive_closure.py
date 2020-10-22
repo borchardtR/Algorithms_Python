@@ -9,7 +9,7 @@
 # The constructor take V*(V+E) time:
 # V calls to constructor of Directed_DFS() which takes V+E time
 
-# Takes V*(V+E) space (V Directed_DFS data structures of size V+E) -> could be reduced to V^2 space if you don't store digraph as an instance variable in directed_dfs.py
+# Takes space proportional to V^2 (V references to V Directed_DFS objects of size V)
 
 # Example:
 # python transitive_closure.py tinyDG.txt ' '

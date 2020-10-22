@@ -3,6 +3,10 @@
 
 # sorts the vertices in a DAG in topological order
 
+# Topologically sort a DAG with:
+    # Time complexity: Proportional to V + E
+    # Space complexity: Proportional to V
+
 # Example:
 # python topological.py tinyDAG.txt ' '
 # python topological.py tinyDG.txt ' '

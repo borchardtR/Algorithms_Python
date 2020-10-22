@@ -7,6 +7,10 @@
 # 2. Postorder: The order in which the dfs() calls finish.
 # 3. Reverse postorder: This is the topological order of the digraph (order that allows for all directed edges to point from a vertex already earlier in the order).
 
+# Time complexity: Proportional to V + E
+# Space complexity: Proportional to V 
+
+
 # Example:
 # python directed_dfs_orderings.py tinyDG.txt ' '
 # python directed_dfs_orderings.py tinyDAG.txt ' '

@@ -1,6 +1,16 @@
 # Title: symbol_graph.py
 # Author: Ryan Borchardt
 
+# The Symbol_Graph serves as a sort of "skin" for the Graph_Array_AdjacencyLists structure.
+    # It allows the vertices of a graph to be labeled anything and not be restricted to names that are 0...graph.V()
+    # It doesn't change the space complexity of the graph:
+        # The additional instance variable, st, takes space proportional to V
+        # The additional instance variable, inverted_index, takes space proprotional to V.
+        # The graph takes space proprotional to V+E, so the overall space complexity of the graph remains the same.
+    # It doesn't change the time complexity of any of the graph operations:
+        # The methods contains(), index(), name(), G() all add constant time to each of their respective operations so the overall time complexity of the graph operations remain the same.    
+
+
 # I am implementing the graph data structure using a symbol table.
 # Important note: This data strucuture builds off and uses the graph_array_adjacencylists structure.
 # The Symbol_Graph has three main instance variables:
