@@ -81,7 +81,7 @@ class Edge_Weighted_Graph:
         # return edge_set
     
         #3. The implementation provided in the book: takes linear time (V+E)
-        # only adds each edge once b/c only adds for when larger vertex is iterated through
+        # only adds each edge once b/c only adds for when vertex with lower label is iterated through
         bag_unique_edges = Bag_LinkedList()
         for v in range(self.V()):
              for edge in self.adjacent(v):

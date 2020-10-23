@@ -137,11 +137,21 @@ class Indexed_PriorityQueue_Min:
         index = self.pq[1]
         key = self.keys[index]
         
+        if self.node_count == 1:
+            self.qp[self.pq[1]] =  None
+            self.keys[self.pq[1]] = None
+            self.pq[1] = None
+            self.node_count -= 1
+            return index
+        
         # Delete this node by replacing it with node at end of priority queue
         self.pq[1] = self.pq[self.node_count]
         self.pq[self.node_count] = None
         
         self.qp[index] = None
+        
+        # just added this line
+        self.qp[self.pq[1]] = 1
         
         #self.node_count -= 1
         self.node_count -= 1
@@ -280,9 +290,17 @@ class Indexed_PriorityQueue_Min:
                     least_child_node_index = child_node_2_index
                     least_child_node_key = child_node_2_key             
             
-            
-
-
+    def __str__(self):
+        total_string = ""
+        current_node = 1
+        while current_node <= self.node_count:
+            i = current_node
+            index = self.pq[i]
+            priority_level = self.keys[index]
+            string = 'Index: ' + str(index) + ', Priority level: ' + str(priority_level)
+            total_string = total_string + string + '\n'
+            current_node += 1
+        return total_string
 def main():
     iPQ = Indexed_PriorityQueue_Min(8)
 
@@ -295,6 +313,8 @@ def main():
     iPQ.insert(5, 0.46)
     iPQ.insert(6, float('inf'))
     iPQ.insert(7, 0.42)
+    
+    print(iPQ)
     
     print(iPQ.keys)
     print(iPQ.pq)
