@@ -86,7 +86,7 @@ My goals for this project are:
   - [Edge](chapter_4/edge_weighted_graphs/edge.py)<br>
   - [Edge weighted graph](chapter_4/edge_weighted_graphs/edge_weighted_graph.py)<br>
   - [Minimum spanning tree (Lazy Prim)](chapter_4/edge_weighted_graphs/mst_lazyprim.py)<br>
-  - [Minimum spanning tree (Eager Prim)](chapter_4/edge_weighted_graphs/mst_eagerprim.py)  (Still need to do)<br>
+  - [Minimum spanning tree (Eager Prim)](chapter_4/edge_weighted_graphs/mst_eagerprim.py)<br>
   - [Minimum spanning tree (Kruskal)](chapter_4/edge_weighted_graphs/mst_kruskal.py)<br>
   
 - #### Edge-weighted Digraphs <br>

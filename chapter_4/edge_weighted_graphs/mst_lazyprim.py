@@ -6,27 +6,10 @@
 # Takes E*lg(E) time (worst-case is E inserts() to minPQ of length E and E deletes of minPQ of length E ) and E space (worst-case is minPQ contains E edges)
 
 """
-Building the MST using Prim's (lazy) algorithm has time complexity:
-
-= E*lg(E) + E*lg(E)
-
-b/c there E delMin() operations: E*lg(E) 
-and E insert() operations in visit(): E*lg(E)
-
-O(E*lg(E))
-
-
-The MST using Prim's (lazy) algorithm has space complexity:
-
-= V + V-1 + E
-
-Where in the worst case, E= V^2
-
-= V + V -1 + V^2
-
-So the space complexity is V^2 in the worst case which is E.
-
-O(E)
+Time complexity: Proportional to E*lg(E)
+    In the worst case there are: E delMin() operations and E insert operations (V*2E/V*lg(E) which is E*lg(E)
+Space complexity: Proportional to E + V
+    The mst_vertices array has length V, the mst_edges queue has length V-1 and the crossing_edges priority queue has length E in the worst case
 """
 
 
