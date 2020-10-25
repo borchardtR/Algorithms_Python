@@ -33,7 +33,7 @@ class ST_binarysearch_orderedarray:
         def __next__(self):
             returned_key = self.key_array[self.current_index]
             self.current_index+=1
-            if returned_key == None: raise StopIteration
+            if returned_key is None: raise StopIteration
             return returned_key
         
     def __iter__(self):
@@ -94,7 +94,7 @@ class ST_binarysearch_orderedarray:
         else: return None
         
     def contains(self,key):
-        return self.get(key) != None
+        return self.get(key) is not None
         
     def size(self):
         return self.n

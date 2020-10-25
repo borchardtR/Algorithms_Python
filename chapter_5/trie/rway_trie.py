@@ -65,7 +65,7 @@ class Trie:
         
         if d == len(key):
             # If this node didn't already have a value (ie we aren't replacing a value for an existing key) increment _size by 1
-            if current_node.value == None:
+            if current_node.value is None:
                 self.root_size += 1
             current_node.value = value
             return current_node
@@ -78,13 +78,13 @@ class Trie:
         
     def get(self, key):
         node_with_key = self._get(self.root, 0, key)
-        if node_with_key == None:
+        if node_with_key is None:
             return None
         return node_with_key.value
         
         
     def _get(self, current_node, d, key):
-        if current_node == None:
+        if current_node is None:
             return None
         if d == len(key):
             return current_node
@@ -93,7 +93,7 @@ class Trie:
         return self._get(current_node.links[index], d, key)
         
     def contains(self, key):
-        return self.get(key) != None
+        return self.get(key) is not None
         
     def isEmpty(self):
         return self.root_size != 0
@@ -115,9 +115,9 @@ class Trie:
         return queue
         
     def collect(self, node, pre, queue):
-        if node==None:
+        if node is None:
             return
-        if node.value != None:
+        if node.value is not None:
             queue.enqueue(pre)
             
         for i in range(0,len(node.links)):
@@ -132,10 +132,10 @@ class Trie:
     
     def wildcard_collect(self, node, pre, pat, queue):
         d = len(pre)
-        if node == None:
+        if node is None:
             return
         # Compared to the two previous methods (keys() and keyswithPrefix(), keys only get added if they match the same length as pat.
-        if d == len(pat) and node.value != None:
+        if d == len(pat) and node.value is not None:
             queue.enqueue(pre)
         if d == len(pat): # and node.value == None
             return
@@ -152,12 +152,12 @@ class Trie:
         return string[0:length]
         
     def search(self, node, s, d, length):
-        if node == None:
+        if node is None:
             print(length)
             return length
         
         # If you encounter a key, update the length.
-        if node.value != None:
+        if node.value is not None:
             length = d
         
         # The longest the length can possibly be is the length of the string:
@@ -176,12 +176,12 @@ class Trie:
         
     def _delete(self, node, key, d):
         
-        if d == len(key) and node.value != None:
+        if d == len(key) and node.value is not None:
             node.value = None
             print('deleted key')
             return
             
-        if d == len(key) and node.value == None:
+        if d == len(key) and node.value is None:
             print('Key does not exist')
             return 
             
@@ -193,7 +193,7 @@ class Trie:
         
         for i in range(len(next_node.links)):
             downstream_node = next_node.links[i]
-            if downstream_node != None:
+            if downstream_node is not None:
                 # Cant delete node because there are other keys that use these downstream nodes
                 return
         

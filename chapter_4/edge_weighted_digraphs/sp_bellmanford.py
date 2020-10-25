@@ -150,7 +150,7 @@ class Shortest_Paths:
         return self.pass_count
         
     def hasNegativeCycle(self):
-        return self.cycle != None
+        return self.cycle is not None
         
     def findNegativeCycle(self):
         # Build ew_digraph from edges in edgeTo

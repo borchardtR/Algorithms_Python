@@ -47,7 +47,7 @@ class Paths_dfs:
         if self.hasPathTo(v) == False: return None
         stack = Stack_ResizingArray()
         x = v
-        while x != None:
+        while x is not None:
             stack.push(x)
             x = self.path_array[x]
         

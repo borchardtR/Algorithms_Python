@@ -35,7 +35,7 @@ class ST_unordered_linkedlist:
             self.current_node = 1
             
         def __next__(self):
-            if self.first_node == None: raise StopIteration
+            if self.first_node is None: raise StopIteration
             returned_node = self.first_node
             self.first_node = self.first_node.next
             return returned_node
@@ -74,7 +74,7 @@ class ST_unordered_linkedlist:
         
         
     def contains(self, key):
-        return get(key) != None
+        return get(key) is not None
         
     def isEmpty(self):
         return self.size() == 0

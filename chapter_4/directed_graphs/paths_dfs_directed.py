@@ -40,7 +40,7 @@ class Paths_DFS_Directed:
         if self.hasPathTo(v) == False: return None
         stack = Stack_ResizingArray()
 
-        while v != None:
+        while v is not None:
             stack.push(v)
             v = self.paths_array[v]
         return stack

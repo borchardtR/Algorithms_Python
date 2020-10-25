@@ -94,7 +94,7 @@ class Indexed_PriorityQueue_Min:
     
     # Takes in an index value and returns True if the index is in the indexed_priority_queue
     def contains(self, index):
-        return self.qp[index] != None
+        return self.qp[index] is not None
     
     # Change the current_key associated with an index value to key
     def change(self, index, key):

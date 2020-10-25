@@ -33,7 +33,7 @@ class ST_HashTable_LinearProbing:
         for i in range(0,self.M):
             key_reput = self.key_array[i]
             value_reput = self.value_array[i]
-            if key_reput == None: continue 
+            if key_reput is None: continue 
             new_ST.put(key_reput,value_reput)
         
         # Can essentially reassign self by reassigning all of its instance variables to the instance variables in new_ST
@@ -50,7 +50,7 @@ class ST_HashTable_LinearProbing:
         
         
         current_array_index = self._hash_function(key)
-        while self.key_array[current_array_index] != None:
+        while self.key_array[current_array_index] is not None:
             if self.key_array[current_array_index] == key: 
                 self.value_array[current_array_index] = value
                 return
@@ -66,7 +66,7 @@ class ST_HashTable_LinearProbing:
     def get(self,key):
         current_array_index = self._hash_function(key)
         while self.key_array[current_array_index] != key:
-            if self.key_array[current_array_index] == None:
+            if self.key_array[current_array_index] is None:
                 return None
             # Increments current_array_index by 1. 
             # If the current_array_index reaches the final entry in the hash table, the current_array_index is set back to zero:
@@ -78,7 +78,7 @@ class ST_HashTable_LinearProbing:
         current_array_index = self._hash_function(key)
         # First need to find the array_index for the key
         while self.key_array[current_array_index] != key:
-            if self.key_array[current_array_index] == None: return None
+            if self.key_array[current_array_index] is None: return None
             current_array_index = (current_array_index + 1) % self.M
         self.key_array[current_array_index] = None
         self.value_array[current_array_index] = None
@@ -87,7 +87,7 @@ class ST_HashTable_LinearProbing:
         # Some of the key/value pairs in this cluster may have had the same initial array_index as the deleted key and 
         # Need to re-put them so that a put() operation can find these keys
         current_array_index = (current_array_index +1) % self.M
-        while self.key_array[current_array_index] != None:
+        while self.key_array[current_array_index] is not None:
             key_reput = self.key_array[current_array_index]
             value_reput = self.value_array[current_array_index]
             self.key_array[current_array_index] = None
@@ -101,7 +101,7 @@ class ST_HashTable_LinearProbing:
             print(self.M)
     
     def contains(self,key):
-        return self.get(key)!=None
+        return self.get(key) is not None
         
     def size(self):
         return self.N
@@ -123,7 +123,7 @@ class ST_HashTable_LinearProbing:
         
         def __next__(self):
             if self.num_keys_processed == self.num_keys: raise StopIteration
-            while self.keys[self.current_index] == None:
+            while self.keys[self.current_index] is None:
                 self.current_index += 1
                 if self.current_index == self.table_size: self.current_index=0
             returned_key = self.keys[self.current_index]

@@ -24,12 +24,12 @@ from algorithms_python.chapter_4.edge_weighted_digraphs.directed_edge import Dir
 
 class Edge_Weighted_Digraph:
     def __init__(self, V=None, filename=None, delimiter=None):
-        if V!=None:
+        if V is not None:
             self._V= V
             self._E = 0
             self.adj = [Bag_LinkedList() for i in range(self._V)]
         
-        if filename != None:
+        if filename is not None:
             file_object = open(filename, 'r')
             self._V = int(file_object.readline())
             # I prefer to dynamically determine _E

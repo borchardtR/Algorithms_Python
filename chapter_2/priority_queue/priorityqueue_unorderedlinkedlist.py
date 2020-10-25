@@ -19,7 +19,7 @@ class PriorityQueue_UnorderedLinkedList:
             self.node_count = PQ_object.node_count
             
         def __next__(self):
-            if self.current_node == None: raise StopIteration
+            if self.current_node is None: raise StopIteration
             returned_item = self.current_node.item
             self.current_node = self.current_node.next
             return returned_item
@@ -87,7 +87,7 @@ class PriorityQueue_UnorderedLinkedList:
         # Reassign previous node's next attribute to the node after the max node to cut out the max node
         
         # If the max node is the first node in the linked list, the node_before_max is  None
-        if node_before_max == None:
+        if node_before_max is None:
             self.linked_list = current_max_node.next
             self.node_count -= 1
         else:

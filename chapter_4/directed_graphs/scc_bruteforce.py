@@ -46,7 +46,7 @@ class SCC:
         
         # This takes a maximum time of V^2
         for i in range(digraph.V()):
-            if self.component_id_array[i] == None:
+            if self.component_id_array[i] is None:
                 self.component_number += 1
                 self.component_id_array[i] = self.component_number
                 for j in range(digraph.V()):

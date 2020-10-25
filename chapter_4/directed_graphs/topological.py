@@ -29,7 +29,7 @@ class Topological:
         return self._order
         
     def isDag(self):
-        return self._order != None
+        return self._order is not None
         
 
 

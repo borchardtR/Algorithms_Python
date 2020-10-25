@@ -55,7 +55,7 @@ class ST_HashTable_SeparateChaining:
         self.N +=1
     
     def _get(self,key,current_node):
-        if current_node == None: return None
+        if current_node is None: return None
         if current_node.key == key: return current_node.value
         return self._get(key,current_node.next)
         
@@ -69,7 +69,7 @@ class ST_HashTable_SeparateChaining:
     def delete(self,key):
         key_array_index = self._hash_function(key)
         current_node = self.array[key_array_index]
-        if current_node == None: 
+        if current_node is None: 
             print(key, ' is not in the symbol table')
             return
         # If the first node has the key, need to reassign the reference at the key_array_index position to the node after this one:
@@ -78,7 +78,7 @@ class ST_HashTable_SeparateChaining:
             self.N -= 1
             if (self.N>0) and (self.N/self.M) <= 1/8: self._resize(0.5)
             return
-        while current_node != None:
+        while current_node is not None:
             # If node after current node has the key, reassign current_node.next to the node after the node with the key (current_node.next.next)
             if current_node.next.key == key: 
                 current_node.next = current_node.next.next
@@ -86,12 +86,12 @@ class ST_HashTable_SeparateChaining:
                 if (self.N>0) and (self.N/self.M) <= 1/8: self._resize(0.5)
             current_node = current_node.next
             return
-        if current_node == None: 
+        if current_node is None: 
             print(key, ' is not in the symbol table')
             return        
         
     def contains(self,key):
-        return self.get(key)!=None
+        return self.get(key) is not None
         
     def size(self):
         return self.N 
@@ -114,7 +114,7 @@ class ST_HashTable_SeparateChaining:
         def __next__(self):
             if self.nodes_processed==self.node_limit: raise StopIteration
             # Skip to next array index that has a linked list:
-            while self.current_node == None: 
+            while self.current_node is None: 
                 self.current_array_index += 1
                 self.current_node = self.array[self.current_array_index]
             returned_node = self.current_node

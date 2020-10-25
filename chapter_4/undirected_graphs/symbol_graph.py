@@ -90,7 +90,7 @@ class Symbol_Graph:
             
     
     def contains(self, key):
-        return self.st.get(key) != None
+        return self.st.get(key) is not None
     
     def index(self, key):
         return self.st.get(key)
@@ -108,7 +108,7 @@ class Symbol_Graph:
             ll = self.graph.adj[current_index]
             add_string = 'Verticies adjacent to ' + str(self.inverted_index[current_index]) + ': '
             for node in ll:
-                if node != None:
+                if node is not None:
                     add_string = add_string + str(self.inverted_index[node]) + ', '
             current_index += 1
             returned_string = returned_string + add_string[:len(add_string)-2] + '\n'
