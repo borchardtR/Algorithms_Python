@@ -26,7 +26,7 @@ class Bag_LinkedList:
             self.current_node = bag._linked_list
         
         def __next__(self):
-            if self.current_node == None: raise StopIteration
+            if self.current_node is None: raise StopIteration
             returned_item = self.current_node.item
             self.current_node = self.current_node.next
             return returned_item
@@ -51,7 +51,7 @@ class Bag_LinkedList:
     def __str__(self):
         returned_string = ''
         current_node = self._linked_list
-        while current_node != None:
+        while current_node is not None:
             added_string = str(current_node.item) + '-->'
             returned_string = returned_string + added_string
             current_node = current_node.next

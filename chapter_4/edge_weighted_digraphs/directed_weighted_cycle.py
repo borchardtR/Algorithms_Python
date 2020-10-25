@@ -20,14 +20,13 @@ from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_Resizing
 
 class Directed_Weighted_Cycle:
     def __init__(self, ew_digraph):
-        self.ew_digraph = ew_digraph
         # This is used to keep track of whether a vertex has been encountered or not.
         # This way dfs() will only run at most once for each vertex
-        self.marked_array = [False]*self.ew_digraph.V()
+        self.marked_array = [False]*ew_digraph.V()
         
         # This array is used to build the cycle_stack
         # For a given index
-        self.edgeTo = [None]*self.ew_digraph.V()
+        self.edgeTo = [None]*ew_digraph.V()
         
         # This stack stays empty until a cycle is detected.
         # If a cycle is detected, all of the vertices along the cycle are added to the stack
@@ -37,19 +36,19 @@ class Directed_Weighted_Cycle:
         # This array keeps track of whether a vertex is still on the call stack.
         # If we encounter a vertex that is still on the call stack, then we know a cycle exists (similar to how if the end of the string re-encounters the string in the Tremaux maze)
         # The value at a given index is turned to True while it is on the call stack and turned to False when dfs finishes (and it is no longer on the call stack)
-        self.onStack = [False]*self.ew_digraph.V()
+        self.onStack = [False]*ew_digraph.V()
         
-        for i in range(self.ew_digraph.V()):
+        for i in range(ew_digraph.V()):
             # This way dfs goes through all vertices even if in different components.
             if self.marked_array[i] != True:
-                self.dfs(i)
+                self.dfs(i, ew_digraph)
         
-    def dfs(self,v):
+    def dfs(self,v, ew_digraph):
         self.onStack[v] = True
         self.marked_array[v] = True
         
         # For Edge_Weighted_Digraph, self.ewdigraph.adjacent(v) returns the edges coming from vertex v (in Digraph, self.digraph.adjacent(v) returns the vertices v is pointing towards.
-        for directed_edge in self.ew_digraph.adjacent(v):
+        for directed_edge in ew_digraph.adjacent(v):
             w = directed_edge.towards_vert()
             
             # 1.
@@ -62,7 +61,7 @@ class Directed_Weighted_Cycle:
             # We only search through the neighbors of a vertex once.
             elif self.marked_array[w] == False:
                 self.edgeTo[w] = directed_edge
-                self.dfs(w)
+                self.dfs(w, ew_digraph)
             
             # 3.
             # If this is a true, a cycle has been detected and we can build the cycle stack to show the cycle.

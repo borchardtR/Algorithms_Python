@@ -12,20 +12,11 @@ Advantages over sp_dijkstra:
 
 Assumptions:
 1. Assumes that the edge-weighted digraph is acyclic.
-2. Requires that we know the vertex with highest precedence order (as the source vertex) in the acyclic weighted digraph.
 
-Takes space proportional to V.
-
-Takes time proportional to E+V.
-    Involves doing a topogological sort of the ewdg:
-        cycle detection (directed_weighted_cycle.py) uses dfs which takes time proprotional to E+V.
-        getting the reverse postorder (directed_dfs_orderings_ewd.py) uses dfs which takes time proprotional to E+V.
-    Involves a call to relax() for each vertex. At each vertex, relax does the following: (this sums to E+V run time)
-        Add vertex to the tree (which in my case is a simple print('The shortest path has been determined for vertex v') statement), (this is done V*1 = V total times) 
-        Iterate through adjacency list and do a series of constant time operations (this is done V*(num_neighbors(V)*1) = E total time)
         
-        
-Part of understanding this requires understanding that once a vertex is called from the topological sort, its shortest path has already been determined (this is where the add vertex to the tree operation comes in -> in my case its just a print() statement).
+Part of understanding this requires understanding that once a vertex is pulled from the topological sort:
+    1. All of the possible paths from the source vertex to this vertex have been examined and
+    2. The shortest path has already been selected (this is where the add vertex to the tree operation comes in -> in my case its just a print() statement).
 
 This can be understood by example by looking at the possible paths from Vertex 5 to Vertex 4. 
 1. distTo[5] = 0+  Edge(5->4)
@@ -41,10 +32,29 @@ Therefor, by the time we pull 4 out of the topological_sort_stack, we have exami
 
 This is b/c we use topological sort as a methodology for choosing the order of vertices to relax by starting at the vertcies in the order of precedence/prerequisite. By the time we pull a vertex off topological_sort, we have examined the distance of the path to it from all of its dependencies!
 
+Time complexity: Proportional to E + V
+    V time to initialize distTo and edgeTo arrays
+    E + V time to determine the topological order of the DAG
+        E+V time to determine that the directed graph is a DAG
+            Uses dfs (E+V time)
+        E+V time to determine the dfs orderings (including the reverse postorder)
+            Uses dfs (E + V time)
+    A vertex is pulled from the topological_order stack V times and relax() is run V times:
+        Each call to relax uses  E/V * constant time 
+        Overall this is V * E/V * constant time = E time
+
+Space complexity: Proportional to V
+    V space for distTo and edgeTo arrays
+    V space for the topological order stack
+        This uses V space for directed cycle detection
+            marked, pathTo, on_stack arrays have length V, cycle_stack has length V
+        This uses V space for dfs orderings
+            preorder queue, postorder queue, reverse post order stack, marked array all have length V
 
 Example:
 python sp_acyclic.py tinyEWDAG.txt ' ' 5
 
+python sp_acyclic.py tinyEWDAG.txt ' ' 1
 """
 
 import sys
@@ -75,7 +85,7 @@ class Shortest_Paths:
     
     # vertex or edge relaxation
     def relax(self, ewdg, v):
-        print('The shortest path to vertex ', v, 'has been permanently determined.')
+        print('All the paths from source vertex ', self.s, ' to vertex ', v, ' have been examined and the shortest path has been permanently determined.')
         print("from vertex: ",v)
         for edge in ewdg.adjacent(v):
             print('Edge: ', edge)
@@ -104,6 +114,8 @@ class Shortest_Paths:
         
     # Returns stack of directed edges from the source vertex s to a given vertex v.    
     def pathTo(self,v):
+        if self.hasPathTo(v) == False:
+            return None
         path_stack = Stack_ResizingArray()
         directed_edge = self.edgeTo[v]
         if v == self.s:

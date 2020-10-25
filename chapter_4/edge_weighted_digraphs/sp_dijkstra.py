@@ -4,14 +4,16 @@ Author: Ryan Borchardt
 
 Implementation of API on page 645.
 
-Assumes non-negative edges.
-
-Takes space proportional to V.
-
-Takes time proportional to E*lg(V) (worst-case)
-    Requires E swim() operations and V sink() operations in that worst case.
+Assumptions: 
+1. non-negative edges
 
 
+Time complexity: Proportional to E*lg(V) + V*lg(V)
+    V delMin() operations (each lg(V))
+    V calls to relax: where each relax() call takes E/V*lg(V) time in the worst case
+Space complexity: Proportional to V
+    the _distTo and edgeTo arrays have length V
+    the indexed priority queue has length V and is represented by three arrays of length V (the binary heap array, the key array and the inverted index array)
 
 Example:
 python sp_dijkstra.py tinyEWD.txt ' ' 0
@@ -43,6 +45,8 @@ class Shortest_Paths:
 
         while self.ipq.isEmpty()==False:
             # self.ipq.delMin() returns the vertex with the smallest distance value.
+            print('Indexed priority queue:')
+            print(self.ipq)
             v = self.ipq.delMin()
             self.relax(ewdg,v)
     

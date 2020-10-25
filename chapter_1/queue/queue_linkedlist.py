@@ -37,7 +37,7 @@ class Queue_LinkedList:
             self.current_node = queue._first_node
         
         def __next__(self):
-            if self.current_node == None: raise StopIteration
+            if self.current_node is None: raise StopIteration
             returned_item = self.current_node.item
             self.current_node = self.current_node.next
             return returned_item

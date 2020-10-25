@@ -6,7 +6,11 @@ This module extends the functionality of edge weighted digraphs to be able to de
 The implementation of this module is exactly the same as the shortest path acyclic module (sp_acyclic.py) except: 
     1. the distTo values are initialized to negative infinity instead of positive infinity
     2. An edge (v->w) is eligible to be relaxed if self._distTo[v] + edge.weight() > self._distTo[w] (switched the signs around)
-    
+
+Note that there is an alternative to this implementation presented in the book:
+    1. Create a copy of the edge weighted digraph where all of the weights are negated
+    2. Find the shortest paths using sp_acyclic.py (these are the longest paths in the original graph)
+    3. When returning total weight of the paths, negate each of the total weights
 
 Assumptions:
 1. Assumes that the edge-weighted digraph is acyclic.
@@ -42,7 +46,7 @@ This is b/c we use topological sort as a methodology for choosing the order of v
 
 Example:
 python lp_acyclic.py tinyEWDAG.txt ' ' 5
-
+python lp_acyclic.py tinyEWDAG.txt ' ' 4
 """
 
 import sys
@@ -71,7 +75,7 @@ class Longest_Paths:
             v = topological_order_stack.pop()
             self.relax(ewdg,v)
     
-    # vertex or edge relaxation
+    # vertex relaxation =( E/V edge relaxation)
     def relax(self, ewdg, v):
         print('The longest path to vertex ', v, 'has been permanently determined.')
         print("from vertex: ",v)
@@ -98,10 +102,12 @@ class Longest_Paths:
         return self._distTo[v]
         
     def hasPathTo(self,v):
-        return self._distTo[v] != float('inf')
+        return self._distTo[v] != float('-inf')
         
     # Returns stack of directed edges from the source vertex s to a given vertex v.    
     def pathTo(self,v):
+        if self.hasPathTo(v) == False:
+            return None
         path_stack = Stack_ResizingArray()
         directed_edge = self.edgeTo[v]
         if v == self.s:
@@ -121,10 +127,10 @@ def main():
     ewdg = Edge_Weighted_Digraph(filename=sys.argv[1], delimiter=sys.argv[2])
     source_vertex = int(sys.argv[3])
     lp = Longest_Paths(ewdg, source_vertex)
-    
+    print(lp._distTo)
     
     for i in range(ewdg.V()):
-        print("Shortest path from ", source_vertex, " to ", i, ":")
+        print("Longest path from ", source_vertex, " to ", i, ":")
         print(lp.pathTo(i))
         print("Total cost:", lp.distTo(i))
         print("\n\n")
