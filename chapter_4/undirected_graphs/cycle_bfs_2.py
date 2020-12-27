@@ -26,22 +26,22 @@ class Cycle:
         self._marked_array = [False]*graph.V()
         self.has_cycle = False
         for i in range(graph.V()):
-            if self._marked_array[i] == False:
+            if not self._marked_array[i]:
                 self.bfs(graph, i)
     
     def bfs(self, graph, v):
         queue = Queue_LinkedList()
         queue.enqueue(v)
         
-        while queue.isEmpty() == False:
+        while queue:
             v = queue.dequeue()
             # if the vertex has already been marked as true, this means that this vertex was placed on the queue twice which can only occur if there is a cycle
-            if self._marked_array[v] == True:
+            if self._marked_array[v]:
                 self.has_cycle = True 
             self._marked_array[v] = True
             neighbors = graph.adjacent(v)
             for neighbor in neighbors:
-                if self._marked_array[neighbor] == False:
+                if not self._marked_array[neighbor]:
                     queue.enqueue(neighbor)
 
     

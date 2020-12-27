@@ -46,7 +46,7 @@ class Graph_Array_AdjacencyLists:
         if filename==None:
             self._V = V
             self._E = 0
-            self.adj = [Bag_LinkedList() for i in range(self._V)]
+            self.adj = [Bag_LinkedList() for _ in range(self.V())]
         else:
             # The built-in open() function returns a file object that is iterable (you can iterate through each line of the file object)
             file_object = open(filename, 'r')

@@ -36,7 +36,7 @@ class Paths_dfs:
         bag_ll = graph.adj[v]
         # I implemented the bag_linkedlist data structure to be iterable (each iteration returns the item instance variable which in this case corresponds to the vertex).
         for neighbor_vertex in bag_ll:
-            if self.marked_array[neighbor_vertex] == False:
+            if not self.marked_array[neighbor_vertex]:
                 self.path_array[neighbor_vertex] = v
                 self.dfs(graph, neighbor_vertex)
     
@@ -44,7 +44,7 @@ class Paths_dfs:
         return self.marked_array[v]
         
     def pathTo(self,v):
-        if self.hasPathTo(v) == False: return None
+        if not self.hasPathTo(v): return None
         stack = Stack_ResizingArray()
         x = v
         while x is not None:

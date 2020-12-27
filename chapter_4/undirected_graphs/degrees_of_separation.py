@@ -38,8 +38,8 @@ def main():
     # If the graph is biparite, the degrees of separation is half of what is initially calculated
     bp = Biparite(sg.G())
     
-    if bp.isBiparite()==False:
+    if not bp.isBiparite():
         print("Degrees of separation between ", sys.argv[3], "and ", sys.argv[4], ": ", dos) 
     else: 
-        print("Degrees of separation between ", sys.argv[3], "and ", sys.argv[4], ": ", int((dos)/2))
+        print("Degrees of separation between ", sys.argv[3], "and ", sys.argv[4], ": ", dos//2)
 if __name__ == "__main__": main()

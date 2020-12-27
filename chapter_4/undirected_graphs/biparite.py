@@ -25,9 +25,9 @@ class Biparite:
         self._marked_array = [False]*graph.V()
         self._biparite_array = [False]*graph.V()
         self._biparite = True
-        # For each vertex, determine all of the other verticies that are connected to it.
+        # For each component in the graph, determine if it is not biparite:
         for i in range(graph.V()):
-            if self._marked_array[i] != True:
+            if not self._marked_array[i]:
                 self._dfs(graph, i)
         
     def _dfs(self, graph, v):
@@ -35,9 +35,9 @@ class Biparite:
 
         adjacent_list = graph.adj[v] 
         for vertex in adjacent_list:
-            if (self._marked_array[vertex]==True) and (self._biparite_array[vertex] == self._biparite_array[v]):
+            if (self._marked_array[vertex]) and (self._biparite_array[vertex] == self._biparite_array[v]):
                 self._biparite = False
-            if self._marked_array[vertex] != True:
+            elif not self._marked_array[vertex]:
                 self._biparite_array[vertex] = not self._biparite_array[v] 
                 self._dfs(graph, vertex)
         

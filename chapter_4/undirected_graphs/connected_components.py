@@ -27,7 +27,7 @@ class CC:
         self._count = 0
         # For each vertex, determine all of the other verticies that are connected to it.
         for i in range(graph.V()):
-            if self._marked_array[i] != True:
+            if not self._marked_array[i]:
                 self._dfs(graph, i)
                 self._count += 1
         
@@ -36,7 +36,7 @@ class CC:
         self._id[v] = self._count
         adjacent_list = graph.adj[v] 
         for vertex in adjacent_list:
-            if self._marked_array[vertex] != True:
+            if not self._marked_array[vertex]:
                 self._dfs(graph, vertex)
         
 

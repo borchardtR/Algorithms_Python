@@ -33,23 +33,19 @@ class Biparite:
         queue = Queue_LinkedList()
         queue.enqueue(v)
         
-        while queue.isEmpty() == False:
+        while queue:
             v = queue.dequeue()
-            if self.marked_array[v] == True:
-                continue
             
-            self.marked_array[v] = True
-            
-            neighbors = graph.adjacent(v)
-            for neighbor in neighbors:
-                if (self.marked_array[neighbor]==True) and (self.biparite_array[neighbor] == self.biparite_array[v]):
+        
+            for neighbor in graph.adjacent(v):
+                if (self.marked_array[neighbor]) and (self.biparite_array[neighbor] == self.biparite_array[v]):
                     self._isBiparite = False
                 
-                if self.marked_array[neighbor]==False:
-                    queue.enqueue(neighbor)
+                elif not self.marked_array[neighbor]:
                     #self.previous_vertex_array[neighbor] = v
                     self.biparite_array[neighbor] = not self.biparite_array[v]
-                
+                    self.marked_array[neighbor] = True
+                    queue.enqueue(neighbor)
             
             
             

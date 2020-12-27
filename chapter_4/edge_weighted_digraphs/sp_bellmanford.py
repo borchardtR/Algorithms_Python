@@ -4,6 +4,41 @@ Author: Ryan Borchardt
 
 Implementation of API on page 645 as well as the API listed on page 677.
 
+
+All of the shortest-path algorithms utilize vertex/edge relaxation. 
+The differences between the shortest-path algorithms are:
+    1. the methodology that is used to determine the order/frequency of the vertices/edges to be (potentially) relaxed. 
+    2. the assumptions / limitations of when the shortest-path algorithm will work.
+    3. The time complexity
+    4. The space complexity 
+
+Dijkstra's algorithm:
+    1. The order of the vertices to be (potentially) relaxed is determined by the vertex with the lowest distTo value on the indexed priority queue
+        Once a vertex is pulled from the indexed priority queue, we know that we have found the shortest path for it 
+            b/c every other possible path goes through a vertex that is currently on the indexed priority queue and all of those vertices already have a higher distTo value
+        Each vertex only needs to be relaxed once (ie there is only one pass of edge relaxation before all of the edges are ineligible). 
+    2. Edges must have non-negative weights.
+    3. Time complexity: Proportional to E*lg(V) + V*lg(V) (linearithmic)
+    4. Space complexity: Proportional to V (linear)
+    
+Acyclic algorithm:
+    1. The order of the vertices to be relaxed is determined by the topological order.
+        Once a vertex is pulled from the topological order, all of its possible paths have been examined and the shortest path has been selected
+        Each vertex only needs to be relaxed once (ie there is only one pass of edge relaxation before all of the edges are ineligible). 
+    2. The graph must be acyclic.
+    3. Time complexity: Proportional to E + V (linear)
+    4. Space complexity: Proportional to V (linear)
+    
+    
+Bellman-Ford algorithm:
+    1. The order of the vertices to be (potentially) relaxed is determined by the edges that were relaxed in the previous pass:
+        (with first pass being the source vertex), for edges that were relaxed in the previous pass, the towards_vert will be (potentially) relaxed in the next pass
+        There is a max of V passes (of edge relaxation) until no edge is eligible.
+    2. The graph must not have negative cycle(s).
+    3. Time complexity: Proportional to E*V (worst-case), proportional to E (best-case)
+    4. Space complexity: Proportional to V (linear) 
+
+
 Assumes there are no negative cycles reachable from s.
     If there are, the program will still run -> it will return the negative cycle instead of the shortest paths from s.
 

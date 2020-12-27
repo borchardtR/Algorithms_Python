@@ -40,16 +40,14 @@ class Depth_First_Search:
     def dfs(self,graph,s):
         stack = Stack_ResizingArray()
         stack.push(s)
-        while stack.isEmpty() != True:
+        while stack:
             v = stack.pop()
-            # Need to check to see if this vertex has already been marked (this would occur if the vertex was already popped from the stack):
-            if self.marked_array[v] == True:
-                continue
-            self.marked_array[v] = True
+   
             self.count_connected += 1
             print(v, self.count_connected)
             for neighbor in graph.adj[v]:
-                if self.marked_array[neighbor] != True:
+                if not self.marked_array[neighbor]:
+                    self.marked_array[v] = True
                     stack.push(neighbor)
     
     def marked(self,v):

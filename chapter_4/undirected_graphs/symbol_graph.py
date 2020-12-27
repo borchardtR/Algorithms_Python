@@ -67,7 +67,7 @@ class Symbol_Graph:
         for line in file_object:
             line_list = line.strip().split(delimiter)
             for vertex in line_list:
-                if self.st.contains(vertex)==False:
+                if not self.st.contains(vertex):
                     self.st.put(vertex,index_count)
                     self.inverted_index.append(vertex)
                     index_count+=1

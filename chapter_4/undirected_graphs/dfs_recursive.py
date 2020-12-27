@@ -64,7 +64,7 @@ class DFS_Recursive:
         bag_ll = graph.adj[v]
         # I implemented the bag_linkedlist data structure to be iterable (each iteration returns the item instance variable which in this case corresponds to the vertex).
         for neighbor_vertex in bag_ll:
-            if self.marked_array[neighbor_vertex] == True: 
+            if self.marked_array[neighbor_vertex]: 
                 print(neighbor_vertex,'is already marked.')
             else:
                 print("dfs(",neighbor_vertex,")")

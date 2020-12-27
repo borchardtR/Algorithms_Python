@@ -33,20 +33,21 @@ class Paths_dfs:
         self.marked_array[v] = True
         stack = Stack_ResizingArray()
         stack.push(v)
-        while stack.isEmpty() == False:
+        while stack:
             vertex = stack.pop()
-            self.marked_array[vertex] = True
+
             neighbors_list = graph.adj[vertex]
             for i in neighbors_list:
                 if self.marked_array[i] != True:
                     stack.push(i)
+                    self.marked_array[vertex] = True
                     self.path_array[i] = vertex
     
     def hasPathTo(self, v):
         return self.marked_array[v]
         
     def pathTo(self,v):
-        if self.hasPathTo(v) == False: return None
+        if not self.hasPathTo(v): return None
         stack = Stack_ResizingArray()
         x = v
         while x != self.s:

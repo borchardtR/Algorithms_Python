@@ -32,11 +32,11 @@ class Paths_bfs:
         queue = Queue_LinkedList()
         self.marked_array[v] = True
         queue.enqueue(v)
-        while queue.isEmpty() == False:
+        while queue:
             vertex = queue.dequeue()
             neighbors_list = graph.adj[vertex]
             for i in neighbors_list:
-                if self.marked_array[i] != True:
+                if not self.marked_array[i]:
                     queue.enqueue(i)
                     self.marked_array[i] = True
                     self.path_array[i] = vertex
@@ -46,7 +46,7 @@ class Paths_bfs:
         return self.marked_array[v]
         
     def pathTo(self,v):
-        if self.hasPathTo(v) == False: return None
+        if not self.hasPathTo(v): return None
         stack = Stack_ResizingArray()
         x = v
         while x != self.s:
