@@ -30,10 +30,10 @@ class Paths_BFS_Directed:
     def bfs(self,v, digraph): 
         queue = Queue_LinkedList()
         queue.enqueue(v)
-        while queue.isEmpty()==False:
+        while queue:
             v = queue.dequeue()
             for points_towards in digraph.adjacent(v):
-                if self.marked_array[points_towards] == False:
+                if not self.marked_array[points_towards]:
                     self.marked_array[points_towards] = True
                     self.paths_array[points_towards] = v
                     queue.enqueue(points_towards)
@@ -44,7 +44,7 @@ class Paths_BFS_Directed:
         return self.marked_array[v]
         
     def pathTo(self,v):
-        if self.hasPathTo(v) == False: return None
+        if not self.hasPathTo(v): return None
         stack = Stack_ResizingArray()
         
         while v is not None:

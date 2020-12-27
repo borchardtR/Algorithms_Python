@@ -38,7 +38,7 @@ class SCC:
         print(reverse_post_order_stack)
         
         for vertex in reverse_post_order_stack:
-            if self.marked_array[vertex] != True:
+            if not self.marked_array[vertex]:
                 self.dfs(vertex, digraph)
                 self.count_val+= 1
         
@@ -49,7 +49,7 @@ class SCC:
         points_towards = digraph.adjacent(v)
         
         for vertex in points_towards:
-            if self.marked_array[vertex] != True:
+            if not self.marked_array[vertex]:
                 self.dfs(vertex, digraph)
 
         

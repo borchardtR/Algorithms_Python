@@ -20,7 +20,7 @@ from algorithms_python.chapter_4.directed_graphs.directed_dfs_orderings import D
 
 class Topological:
     def __init__(self, digraph):
-        if Directed_Cycle(digraph).hasCycle()==False:
+        if not Directed_Cycle(digraph).hasCycle():
             self._order = Directed_DFS_Orderings(digraph).reversepostorder()
         else:
             self._order = None

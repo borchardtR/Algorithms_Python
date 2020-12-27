@@ -1,7 +1,8 @@
-# Title: directed_cycle.py
+# Title: directed_cycle_2.py
 # Author: Ryan Borchardt
 
-# The implementation uses a recursive implementation of depth first search.
+# Alternate implementation of directed_cycle.py
+    # The only difference between the two implementations is where I add and remove vertices from the stack in the code.
 
 # This class extends the functionality of directed graphs to be able to:
 # 1. Determine if a cycle exists in the digraph.
@@ -12,8 +13,8 @@
 
 
 # Example:
-# python directed_cycle.py tinyDG.txt ' '
-# python directed_cycle.py tinyDAG.txt ' ' 
+# python directed_cycle_2.py tinyDG.txt ' '
+# python directed_cycle_2.py tinyDAG.txt ' ' 
 
 
 import sys
@@ -45,10 +46,11 @@ class Directed_Cycle:
         for i in range(digraph.V()):
             # This way dfs goes through all vertices even if in different components.
             if not self.marked_array[i]:
+                self.onStack[i]=True
                 self.dfs(i, digraph)
+                self.onStack[i]=False
         
     def dfs(self,v, digraph):
-        self.onStack[v] = True
         self.marked_array[v] = True
         for vertex in digraph.adjacent(v):
             # 1.
@@ -61,7 +63,9 @@ class Directed_Cycle:
             # We only search through the neighbors of a vertex once.
             elif not self.marked_array[vertex]:
                 self.paths_array[vertex] = v
+                self.onStack[vertex]=True
                 self.dfs(vertex, digraph)
+                self.onStack[vertex]=False
             
             # 3.
             # If this is a true, a cycle has been detected and we can build the cycle stack to show the cycle.
@@ -73,7 +77,6 @@ class Directed_Cycle:
                     x = self.paths_array[x]
                 self.cycle_stack.push(vertex)
         
-        self.onStack[v] = False
     
     
         

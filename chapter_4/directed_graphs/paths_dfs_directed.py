@@ -26,7 +26,7 @@ class Paths_DFS_Directed:
         
     def dfs(self,v, digraph): 
         for points_towards in digraph.adjacent(v):
-            if self.marked_array[points_towards] == False:
+            if not self.marked_array[points_towards]:
                 self.marked_array[points_towards] = True
                 self.paths_array[points_towards] = v
                 self.dfs(points_towards, digraph)
@@ -37,7 +37,7 @@ class Paths_DFS_Directed:
         return self.marked_array[v]
         
     def pathTo(self,v):
-        if self.hasPathTo(v) == False: return None
+        if not self.hasPathTo(v): return None
         stack = Stack_ResizingArray()
 
         while v is not None:

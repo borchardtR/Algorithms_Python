@@ -32,7 +32,7 @@ class Directed_DFS_Orderings:
         self.reverse_post_order = Stack_ResizingArray()
         
         for i in range(digraph.V()):
-            if self.marked_array[i] != True:
+            if not self.marked_array[i]:
                 self.dfs(i, digraph)
         
         
@@ -40,7 +40,7 @@ class Directed_DFS_Orderings:
         self.pre_order.enqueue(v)
         self.marked_array[v] = True
         for j  in digraph.adjacent(v):
-            if self.marked_array[j] != True:
+            if not self.marked_array[j]:
                 self.dfs(j, digraph)
         self.post_order.enqueue(v)
         self.reverse_post_order.push(v)

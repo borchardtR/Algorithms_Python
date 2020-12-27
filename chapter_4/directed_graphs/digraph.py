@@ -33,7 +33,7 @@ class Digraph:
         if filename==None:
             self._V = V
             self._E = 0
-            self.adj = [Bag_LinkedList() for i in range(self._V)]
+            self.adj = [Bag_LinkedList() for _ in range(self._V)]
         else:
             # The built-in open() function returns a file object that is iterable (you can iterate through each line of the file object)
             file_object = open(filename, 'r')
@@ -52,7 +52,7 @@ class Digraph:
             # This worked for None in the past b/c it doesn't matter if each element in an array referred to the same None object (in those applications)
             #self.adj = [Bag_LinkedList()]*self._V
             # The code below works b/c the list comprehension creates a new (and different) empty Bag_LinkedList object for each element in the array.
-            self.adj = [Bag_LinkedList() for i in range(self._V)]
+            self.adj = [Bag_LinkedList() for _ in range(self._V)]
     
             for line_string in file_object:
                 # The strip() method for a string object returns a copy of the string where all leading and trailing whitespace are removed from the string (each line_string has the newline '\n' character at the end)
@@ -77,7 +77,10 @@ class Digraph:
         return self.adj[v]
     
     # Returns a digraph object where the edges are all reversed
-    # Allows client to efficiently find edges pointing TOWARDS a given vertex
+    # Allows client to efficiently find edges pointing TOWARDS a given vertex (and its indegree)
+    # reverse() takes V + E time
+        # V time to build array with length V, each with a reference to a linked list
+        # E time to add edges V*(avg outdegree) = V *(E/V) = E 
     def reverse(self):
         rev_digraph = Digraph(V=self._V)
         for from_vert in range(len(self.adj)):

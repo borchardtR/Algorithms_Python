@@ -21,13 +21,13 @@ class Directed_DFS:
         self.marked_array = [False]*digraph.V()
         
         for s in args:
-            self.marked_array[s] = True
-            self.dfs(s,digraph)
+            if not self.marked_array[s]:
+                self.dfs(s,digraph)
         
     def dfs(self,v,digraph):
     
         for points_towards in digraph.adjacent(v):
-            if self.marked_array[points_towards] == False:
+            if not self.marked_array[points_towards]:
                 self.marked_array[points_towards] = True
                 self.dfs(points_towards,digraph)
         
