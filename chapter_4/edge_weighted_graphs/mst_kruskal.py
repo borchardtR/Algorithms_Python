@@ -65,18 +65,19 @@ class MST_Kruskal:
         # Takes E*lg(E) time
         for edge in ewg.edges():
             self.edges_pq.insert(edge)
+        # Note that we can construct a heap of size E in E time w/ heapq.heapify() (see algorithm for heap construction in heapsort)
         
         self.union_find = UF_WeightedQuickUnion(num_sites=ewg.V())    
         
         # Takes E*(lg(E) + lg(V)) + (V-1)*lg(V) time which simplies to ~ E*lg(E) time
-        while (self.edges_pq.isEmpty()==False) and (len(self.mst_edges)<(ewg.V()-1)):
+        while self.edges_pq and len(self.mst_edges)<(ewg.V()-1):
             min_edge = self.edges_pq.delMin()
             # Before adding min_edge to self.mst_edges queue, need to confirm that adding this edge won't create a cycle:
             # Can do this by using Union Find data structure
             # If the two vertices are already connected in the union_find data structure, we know that adding an edge would create a cycle 
             vertex_1 = min_edge.either()
             vertex_2 = min_edge.other(vertex_1)
-            if self.union_find.connected(vertex_1,vertex_2) != True:
+            if not self.union_find.connected(vertex_1,vertex_2):
                 self.mst_edges.enqueue(min_edge)
                 self.union_find.union(vertex_1, vertex_2)
 

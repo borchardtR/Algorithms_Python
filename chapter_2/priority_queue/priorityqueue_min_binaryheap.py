@@ -43,6 +43,9 @@ class PriorityQueue_Min_BinaryHeap:
     
     def delMin(self):
         return self.h.delMin()
+    
+    def __len__(self):
+        return self.h.size()
         
     def __iter__(self):
         return PriorityQueue_Min_BinaryHeap._Iterator(self)

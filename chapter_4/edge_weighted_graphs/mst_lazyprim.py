@@ -34,21 +34,20 @@ class MST_LazyPrim:
         self.crossing_edges = PriorityQueue_Min_BinaryHeap()
         
         self.visit(ewg, 0)
-        while self.crossing_edges.isEmpty() != True:
+        while self.crossing_edges:
             min_weight_crossing_edge = self.crossing_edges.delMin()
             # Need to check for ineligible edges:
             vert_1 = min_weight_crossing_edge.either()
             vert_2 = min_weight_crossing_edge.other(vert_1)
-            if (self.mst_vertices[vert_1]==True) and (self.mst_vertices[vert_2]==True):
+            if self.mst_vertices[vert_1] and self.mst_vertices[vert_2]:
                 continue
-            
-            self.mst_edges.enqueue(min_weight_crossing_edge)
-            
-            # Need to determine which vertex in min_weight_crossing_edge is not already in mst:
-            if self.mst_vertices[vert_1]==True:
-                self.visit(ewg,vert_2)
-            if self.mst_vertices[vert_2]==True:
-                self.visit(ewg,vert_1)
+            else:
+                self.mst_edges.enqueue(min_weight_crossing_edge)
+                # Need to determine which vertex in min_weight_crossing_edge is not already in mst:
+                if self.mst_vertices[vert_1]:
+                    self.visit(ewg,vert_2)
+                if self.mst_vertices[vert_2]:
+                    self.visit(ewg,vert_1)
 
                 
     def visit(self, ewg, vertex):
@@ -59,7 +58,7 @@ class MST_LazyPrim:
         # Note that some of the edges in the minPQ will become ineligible as more vertices are added to MST 
         # These ineligible edges are non-mst edges connecting vertices already in MST
         for edge in ewg.adjacent(vertex):
-            if self.mst_vertices[edge.other(vertex)] == False:
+            if not self.mst_vertices[edge.other(vertex)]:
                 self.crossing_edges.insert(edge)
         
     # returns iterable of all edges in the MST 
