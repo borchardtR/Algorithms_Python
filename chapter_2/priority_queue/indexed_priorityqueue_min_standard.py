@@ -77,6 +77,9 @@ class Indexed_PriorityQueue_Min:
     def size(self):
         return self.node_count
     
+    def __len__(self):
+        return self.size()
+    
     def isEmpty(self):
         return self.node_count==0
     

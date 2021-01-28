@@ -94,6 +94,7 @@ My goals for this project are:
   - [Parallel precedence-constrained scheduling (critical path method)](chapter_4/edge_weighted_digraphs/cpm.py)<br>
   - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
   - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   
+  - [All Paths Shortest Paths (Floyd-Warshall)](chapter_4/edge_weighted_digraphs/apsp_floyd_warshall.py)<br>
   
 
   ### Chapter 5

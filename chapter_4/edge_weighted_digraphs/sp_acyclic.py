@@ -8,7 +8,7 @@ This module required implementing directed_weighted_cycle.py, directed_dfs_order
 
 Advantages over sp_dijkstra:
 1. Works for graphs w/ negative weights.
-2. Faster run time E*lg(V) vs E+V.
+2. Faster run time: E+V vs E*lg(V).
 
 Assumptions:
 1. Assumes that the edge-weighted digraph is acyclic.
@@ -19,8 +19,8 @@ Part of understanding this requires understanding that once a vertex is pulled f
     2. The shortest path has already been selected (this is where the add vertex to the tree operation comes in -> in my case its just a print() statement).
 
 This can be understood by example by looking at the possible paths from Vertex 5 to Vertex 4. 
-1. distTo[5] = 0+  Edge(5->4)
-2. distTo[5] = 0 + Edge(5->1) + Edge(1->3) + Edge(3->6) + Edge(6->4)
+1. distTo[4] = 0+  Edge(5->4)
+2. distTo[4] = 0 + Edge(5->1) + Edge(1->3) + Edge(3->6) + Edge(6->4)
 
 There are no other possible paths. Look at the graph and see for yourself. 
 

@@ -43,7 +43,7 @@ class Shortest_Paths:
         self.ipq.insert(self.s,0)
         
 
-        while self.ipq.isEmpty()==False:
+        while self.ipq:
             # self.ipq.delMin() returns the vertex with the smallest distance value.
             print('Indexed priority queue:')
             print(self.ipq)

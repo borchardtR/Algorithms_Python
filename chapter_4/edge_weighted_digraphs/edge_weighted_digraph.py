@@ -37,7 +37,7 @@ class Edge_Weighted_Digraph:
             file_object.readline()
             self._E = 0
             
-            self.adj = [Bag_LinkedList() for i in range(self._V)]
+            self.adj = [Bag_LinkedList() for _ in range(self._V)]
         
             for line in file_object:
                 line = line.strip().split()
