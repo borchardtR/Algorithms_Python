@@ -93,6 +93,7 @@ My goals for this project are:
   - [Longest path (edge-weighted DAG)](chapter_4/edge_weighted_digraphs/lp_acyclic.py)<br>
   - [Parallel precedence-constrained scheduling (critical path method)](chapter_4/edge_weighted_digraphs/cpm.py)<br>
   - [Shortest path (Bellman-Ford)](chapter_4/edge_weighted_digraphs/sp_bellmanford.py)<br> 
+  - [Shortest path (Bellman-Ford) w/ more intuitive negative cycle detection](chapter_4/edge_weighted_digraphs/sp_bellmanford_2.py)<br> 
   - [Arbitrage](chapter_4/edge_weighted_digraphs/arbitrage.py)<br>   
   - [All Paths Shortest Paths (Floyd-Warshall)](chapter_4/edge_weighted_digraphs/apsp_floyd_warshall.py)<br>
   
