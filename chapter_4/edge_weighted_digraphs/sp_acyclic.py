@@ -58,12 +58,10 @@ python sp_acyclic.py tinyEWDAG.txt ' ' 1
 """
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
-from algorithms_python.chapter_4.edge_weighted_digraphs.directed_edge import Directed_Edge
-from algorithms_python.chapter_4.edge_weighted_digraphs.edge_weighted_digraph import Edge_Weighted_Digraph
-from algorithms_python.chapter_4.edge_weighted_digraphs.topological_ewd import Topological
+from chapter_1.stack.stack_resizingarray import Stack_ResizingArray
+from chapter_4.edge_weighted_digraphs.directed_edge import Directed_Edge
+from chapter_4.edge_weighted_digraphs.edge_weighted_digraph import Edge_Weighted_Digraph
+from chapter_4.edge_weighted_digraphs.topological_ewd import Topological
 
 
 class Shortest_Paths:

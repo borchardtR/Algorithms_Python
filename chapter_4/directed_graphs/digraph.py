@@ -21,9 +21,7 @@
 
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
+from chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
 class Digraph:
     # Note that the code for the constructor of the Digraph data type is the same as that for the undirected graph (Graph_Array_AdjacencyLists).

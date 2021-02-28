@@ -25,13 +25,12 @@ Space complexity: Proportional to V.
 
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.edge_weighted_graphs.edge import Edge
-from algorithms_python.chapter_4.edge_weighted_graphs.edge_weighted_graph import Edge_Weighted_Graph
+
+from chapter_4.edge_weighted_graphs.edge import Edge
+from chapter_4.edge_weighted_graphs.edge_weighted_graph import Edge_Weighted_Graph
 #from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
 # Created this class specifically for MST
-from algorithms_python.chapter_2.priority_queue.indexed_priorityqueue_min_standard import Indexed_PriorityQueue_Min
+from chapter_2.priority_queue.indexed_priorityqueue_min_standard import Indexed_PriorityQueue_Min
 
 
 class MST_EagerPrim:

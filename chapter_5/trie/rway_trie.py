@@ -25,9 +25,8 @@
 
 
 import sys
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
-from algorithms_python.chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
+from chapter_1.queue.queue_linkedlist import Queue_LinkedList
+from chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
 
 class Node:
     def __init__(self, R):

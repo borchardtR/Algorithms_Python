@@ -46,9 +46,7 @@ Indexed priority queues allow for:
 # Example:
 # python indexed_priorityqueue_min_custom.py
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
+from chapter_3.st_hashtable_separatechaining.st_hashtable_separatechaining import ST_HashTable_SeparateChaining
 
 class Indexed_PriorityQueue_Min:
     def __init__(self):

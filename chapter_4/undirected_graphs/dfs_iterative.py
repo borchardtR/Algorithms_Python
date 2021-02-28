@@ -26,7 +26,6 @@ Space complexity: Propotional to V
 # python dfs_iterative.py tinyCG.txt ' ' 0 2 5
 
 import sys
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
 from chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 from chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 

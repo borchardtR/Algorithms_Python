@@ -7,8 +7,7 @@
 
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
+
 
 class Edge:
     def __init__(self, v, w, weight):

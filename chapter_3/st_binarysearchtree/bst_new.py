@@ -5,7 +5,6 @@
 
 
 import sys
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
 from chapter_1.queue.queue_linkedlist import Queue_LinkedList
 class Node:
     def __init__(self, key, value):

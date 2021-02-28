@@ -16,11 +16,9 @@
 # python directed_dfs_orderings.py tinyDAG.txt ' '
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.directed_graphs.digraph import Digraph
-from algorithms_python.chapter_1.stack.stack_resizingarray import Stack_ResizingArray
-from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
+from chapter_4.directed_graphs.digraph import Digraph
+from chapter_1.stack.stack_resizingarray import Stack_ResizingArray
+from chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 
 class Directed_DFS_Orderings:

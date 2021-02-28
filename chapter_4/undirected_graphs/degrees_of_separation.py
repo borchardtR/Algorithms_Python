@@ -10,8 +10,7 @@
 # python degrees_of_separation.py movies.txt '/' 'Bacon, Kevin' 'Kidman, Nicole'
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+
 from chapter_4.undirected_graphs.symbol_graph import Symbol_Graph
 from chapter_4.undirected_graphs.paths_bfs import Paths_bfs
 from chapter_4.undirected_graphs.biparite_bfs import Biparite

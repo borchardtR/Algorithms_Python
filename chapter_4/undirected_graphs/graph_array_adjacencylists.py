@@ -35,8 +35,7 @@
 # python graph_array_adjacencylists.py tinyG.txt ' '
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+
 from chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
 class Graph_Array_AdjacencyLists:

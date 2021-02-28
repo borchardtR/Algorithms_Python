@@ -12,10 +12,9 @@
 
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
-from algorithms_python.chapter_4.edge_weighted_graphs.edge import Edge
+
+from chapter_1.bag.bag_linkedlist import Bag_LinkedList
+from chapter_4.edge_weighted_graphs.edge import Edge
 
 
 

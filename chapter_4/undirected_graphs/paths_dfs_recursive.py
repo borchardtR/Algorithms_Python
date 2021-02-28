@@ -18,8 +18,6 @@
 # python paths_dfs_recursive.py tinyCG.txt ' ' 0
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
 from chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 from chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 

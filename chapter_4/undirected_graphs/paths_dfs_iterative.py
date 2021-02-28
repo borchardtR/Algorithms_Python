@@ -16,8 +16,6 @@
 # python paths_dfs_iterative.py tinyCG.txt ' ' 0
 
 import sys
-# Added Algorithms's parent directory to sys.path
-sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
 from chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 from chapter_1.stack.stack_resizingarray import Stack_ResizingArray
 
@@ -70,15 +68,15 @@ def main():
     
     print(paths.pathTo(0))
     
-    # the pathTo() method returns a stack object (which I have designed to be iterable) so for i in stack_object iterates through the items in each node of the bag
-    for i in range(graph.V()):
-        string = "0 to " + str(i) +": "
-        for j in paths.pathTo(i):
-            if j != i:
-                string = string + str(j) + "->"
-            else:
-               string = string + str(j)
-        print(string)
+    # # the pathTo() method returns a stack object (which I have designed to be iterable) so for i in stack_object iterates through the items in each node of the bag
+    # for i in range(graph.V()):
+    #     string = "0 to " + str(i) +": "
+    #     for j in paths.pathTo(i):
+    #         if j != i:
+    #             string = string + str(j) + "->"
+    #         else:
+    #            string = string + str(j)
+    #     print(string)
 
 if __name__=="__main__":
     main()
