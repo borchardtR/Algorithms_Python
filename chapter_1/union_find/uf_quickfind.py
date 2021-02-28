@@ -42,8 +42,8 @@
     # Running the above instead with largeUF.txt would take ~ ((1 million* 2 million)/(562,500) * 0.0377 seconds = ~134,044 seconds = ~ 37 hours!) 
 
 # Example:
-# python UF_quickfind.py < tinyUF.txt
-# python UF_quickfind.py < mediumUF.txt
+# python uf_quickfind.py < tinyUF.txt
+# python uf_quickfind.py < mediumUF.txt
 
 import sys
 import time

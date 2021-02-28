@@ -11,10 +11,10 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.undirected_graphs.symbol_graph import Symbol_Graph
-from algorithms_python.chapter_4.undirected_graphs.paths_bfs import Paths_bfs
-from algorithms_python.chapter_4.undirected_graphs.biparite_bfs import Biparite
+sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+from chapter_4.undirected_graphs.symbol_graph import Symbol_Graph
+from chapter_4.undirected_graphs.paths_bfs import Paths_bfs
+from chapter_4.undirected_graphs.biparite_bfs import Biparite
 
 def main():
     sg = Symbol_Graph(filename=sys.argv[1], delimiter=sys.argv[2])

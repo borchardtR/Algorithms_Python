@@ -17,9 +17,9 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
-from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
+sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+from chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
+from chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 class Cycle:
     def __init__(self, graph):

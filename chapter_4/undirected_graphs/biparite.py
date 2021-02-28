@@ -17,8 +17,8 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
+sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+from chapter_4.undirected_graphs.graph_array_adjacencylists import Graph_Array_AdjacencyLists
 
 class Biparite:
     def __init__(self, graph):

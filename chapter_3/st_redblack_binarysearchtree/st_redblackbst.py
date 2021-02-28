@@ -28,8 +28,8 @@
 
 import sys
 # Added algorithms_python's parent directory to path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.queue.queue_linkedlist import Queue_LinkedList
+sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+from chapter_1.queue.queue_linkedlist import Queue_LinkedList
 
 
 class ST_RedBlackBST:

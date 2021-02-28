@@ -36,8 +36,8 @@
 
 import sys
 # Added Algorithms's parent directory to sys.path
-sys.path.append('C:/Users/borch/Desktop/Work/github_repository_main/')
-from algorithms_python.chapter_1.bag.bag_linkedlist import Bag_LinkedList
+sys.path.append('/home/ryan/all_files/work/projects/algorithms_python/')
+from chapter_1.bag.bag_linkedlist import Bag_LinkedList
 
 class Graph_Array_AdjacencyLists:
     # Note that in Python, a class can't have more than one constructor (Java allows for more than one constructor).
